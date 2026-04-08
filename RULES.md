@@ -19,5 +19,4 @@
 - Use existing CSS variables for the following items before making new CSS variables:
 	- Brand colors
 	- Typography
-	- Motion
 - Use https://placehold.co/ for placeholder images.

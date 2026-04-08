@@ -1,24 +1,18 @@
 # Style Guide
 
 ## Company Details
-- Company Name
-- Company slogans
-- Logo
-
-### Layout
-- Single-column layout, etc.
+- Name: Petco
+- Slogan: Where the pets go.
+- Logo: `assets/petco_logo_2025.png`
 
 ### Brand Colors:
-- primary
-- secondary
-- etc.
+- Navy Blue `rgb(0 25 82)`
+- Light Blue `rgb(0 157 220)`
+- Light Green `rgb(136 198 90)`
 
 ### Typography
-- Title font/variants
-- Paragraph font/variants
+- Title font: Petco Circular: `assets/PetcoCircular-Regular.woff`
+    - Fall back on Segoe UI, Roboto, sans-serif
+- Paragraph: Petco Circular: `assets/PetcoCircular-Regular.woff`
+    - Fall back on Segoe UI, Roboto, sans-serif
 
-### Motion
-- Animations
-
-### Background Details
-- etc.
