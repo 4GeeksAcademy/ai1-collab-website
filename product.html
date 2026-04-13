@@ -11,25 +11,107 @@
     <meta property="og:description" content="High-protein salmon dog treats with omega-rich ingredients, pricing, and feeding details.">
     <meta property="og:url" content="https://www.petco.com/product/premium-salmon-bites-for-dogs">
     <meta property="og:image" content="https://placehold.co/900x700">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        petco: {
-                            navy: 'rgb(0 25 82)',
-                            blue: 'rgb(0 157 220)',
-                            green: 'rgb(136 198 90)'
-                        }
+                        brand: "#00205B",
+                        brandLight: "#123E8A",
+                        brandSoft: "#E8EEF8"
                     },
-                    fontFamily: {
-                        petco: ['Petco Circular', 'Segoe UI', 'Roboto', 'sans-serif']
+                    boxShadow: {
+                        soft: "0 20px 45px rgba(0, 32, 91, 0.12)"
                     }
                 }
             }
         };
     </script>
+    <style>
+        :root {
+            --brand: #00205B;
+            --brand-light: #123E8A;
+            --surface: #F7FAFF;
+        }
+
+        body {
+            font-family: "DM Sans", sans-serif;
+            position: relative;
+            background:
+                radial-gradient(circle at 90% 5%, rgba(0, 32, 91, 0.14) 0%, rgba(0, 32, 91, 0) 35%),
+                radial-gradient(circle at 8% 88%, rgba(0, 32, 91, 0.12) 0%, rgba(0, 32, 91, 0) 36%),
+                var(--surface);
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background: #ffffff;
+            z-index: 9999;
+            pointer-events: none;
+            animation: fade-screen 1s ease-out forwards;
+        }
+
+        body > * {
+            opacity: 0;
+            animation: fade-content 0.85s ease-out 0.1s forwards;
+        }
+
+        @keyframes fade-screen {
+            0% { opacity: 1; }
+            100% { opacity: 0; visibility: hidden; }
+        }
+
+        @keyframes fade-content {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            body::before,
+            body > * {
+                animation: none;
+            }
+
+            body::before {
+                opacity: 0;
+                visibility: hidden;
+            }
+
+            body > * {
+                opacity: 1;
+            }
+        }
+
+        .similar-products-viewport {
+            overflow-x: auto;
+            overflow-y: hidden;
+            scrollbar-width: none;
+            scroll-behavior: smooth;
+            scroll-snap-type: x mandatory;
+        }
+
+        .similar-products-viewport::-webkit-scrollbar {
+            display: none;
+        }
+
+        .similar-products-track {
+            display: grid;
+            grid-auto-flow: column;
+            grid-auto-columns: minmax(220px, 1fr);
+            gap: 1rem;
+            padding: 0.2rem;
+        }
+
+        .similar-product-card {
+            scroll-snap-align: start;
+        }
+    </style>
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -132,104 +214,74 @@
             ]
         }
     </script>
-    <link rel="stylesheet" href="style.css">
 </head>
-<body class="font-petco flex min-h-screen flex-col bg-slate-100 text-petco-navy" aria-label="Petco Premium Salmon Bites product page">
-    <header class="sticky top-0 z-50 px-3 pt-3 md:px-6">
-        <nav class="navbar-shell mx-auto w-full max-w-7xl rounded-2xl border border-petco-navy/20 p-3 md:p-4" aria-label="Main navigation">
-            <div class="flex flex-wrap items-center gap-3 md:gap-4">
-                <a href="index.html" class="order-1 inline-flex items-center gap-2 rounded-xl px-2 py-1 transition hover:bg-white/15" aria-label="Go to Petco homepage">
-                    <img src="assets/petco_logo_2025.png" alt="Petco logo" class="h-10 w-auto object-contain" loading="eager">
-                    <span class="hidden text-sm font-medium text-petco-navy sm:inline">Where the pets go.</span>
-                </a>
-
-                <button type="button" class="order-2 ml-auto inline-flex h-10 w-10 items-center justify-center rounded-xl border border-petco-navy/25 bg-white/90 text-petco-navy transition hover:bg-white focus:outline-none focus-visible:shadow-[0_0_0_3px_rgba(0,25,82,0.25)] md:hidden" aria-label="Open navigation menu" aria-controls="mobile-main-menu" aria-expanded="false" data-mobile-menu-button>
-                    <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
-                        <path d="M4 7h16"></path>
-                        <path d="M4 12h16"></path>
-                        <path d="M4 17h16"></path>
-                    </svg>
-                </button>
-
-                <form role="search" aria-label="Site search" class="order-4 w-full md:order-2 md:ml-auto md:max-w-md md:flex-1">
-                    <label for="site-search" class="sr-only">Search products</label>
-                    <div class="relative">
-                        <svg class="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-petco-navy/50" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                            <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"></circle>
-                            <path d="M20 20L16.65 16.65" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
-                        </svg>
-                        <input id="site-search" name="q" type="search" placeholder="Search food, toys, treats..." class="w-full rounded-xl border border-petco-blue/25 bg-white/90 py-2.5 pl-10 pr-3 text-sm text-petco-navy placeholder:text-petco-navy/50 outline-none ring-0 transition focus:border-petco-blue focus:bg-white focus:shadow-[0_0_0_3px_rgba(0,157,220,0.2)]">
-                    </div>
-                </form>
-
-                <details class="account-menu order-2 ml-auto hidden md:order-4 md:ml-0 md:block" aria-label="Account options">
-                    <summary class="list-none rounded-xl border border-petco-navy bg-petco-navy px-3 py-2 text-sm font-medium text-white transition hover:bg-white hover:text-petco-navy focus:outline-none focus-visible:shadow-[0_0_0_3px_rgba(0,25,82,0.28)]">
-                        Account
-                    </summary>
-                    <div class="absolute right-3 mt-2 w-44 rounded-xl border border-slate-200 bg-white p-2 shadow-xl md:right-6" role="menu" aria-label="User account menu">
-                        <a href="#" class="block rounded-lg px-3 py-2 text-sm text-petco-navy hover:bg-slate-100" role="menuitem">Sign in</a>
-                        <a href="#" class="block rounded-lg px-3 py-2 text-sm text-petco-navy hover:bg-slate-100" role="menuitem">Orders</a>
-                        <a href="#" class="block rounded-lg px-3 py-2 text-sm text-petco-navy hover:bg-slate-100" role="menuitem">Rewards</a>
-                    </div>
-                </details>
-
-                <div class="order-4 hidden w-full md:order-3 md:block md:w-auto" aria-label="Popular categories">
-                    <div class="no-scrollbar flex items-center gap-2 overflow-x-auto pb-1 md:pb-0">
-                        <a href="#" class="min-w-20 rounded-xl border border-white/75 bg-white px-4 py-2 text-center text-sm font-semibold text-petco-navy transition hover:bg-slate-100 focus:outline-none focus-visible:shadow-[0_0_0_3px_rgba(255,255,255,0.45)]">Cat</a>
-                        <a href="#" class="min-w-20 rounded-xl bg-petco-navy px-4 py-2 text-center text-sm font-semibold text-white transition hover:bg-white hover:text-petco-navy focus:outline-none focus-visible:shadow-[0_0_0_3px_rgba(0,25,82,0.35)]">Dog</a>
-                        <a href="product.html" class="min-w-20 rounded-xl border border-petco-navy/20 bg-petco-green px-4 py-2 text-center text-sm font-semibold text-petco-navy transition hover:brightness-95 focus:outline-none focus-visible:shadow-[0_0_0_3px_rgba(136,198,90,0.45)]">Sale</a>
-                    </div>
+<body aria-label="Petco Premium Salmon Bites product page">
+    <header class="sticky top-0 z-40 border-b border-brand/10 bg-white/95 backdrop-blur-sm">
+        <section class="mx-auto flex w-full max-w-7xl flex-col gap-4 px-4 py-4 sm:px-6 lg:px-8 xl:flex-row xl:items-center xl:gap-6" aria-label="Header content">
+            <figure class="flex items-center gap-3">
+                <img src="Images/NEW Petco Logo 2025.png" alt="Petco logo placeholder" class="h-20 w-auto object-contain">
+            </figure>
+            <form class="w-full xl:min-w-0 xl:flex-1" role="search" aria-label="Search products">
+                <label for="site-search" class="sr-only">Search products</label>
+                <div class="flex items-center rounded-full border border-brand/30 bg-brandSoft/70 p-1 shadow-soft">
+                    <input id="site-search" name="q" type="search" placeholder="Search food, toys, beds..." class="w-full rounded-full bg-transparent px-4 py-2 text-sm font-medium text-brand placeholder:text-brand/70 focus:outline-none">
+                    <button type="submit" class="rounded-full bg-brand px-4 py-2 text-sm font-semibold text-white transition hover:bg-brandLight">Search</button>
                 </div>
-
-                <div id="mobile-main-menu" class="order-5 hidden w-full rounded-xl border border-petco-navy/15 bg-white/95 p-3 shadow-lg md:hidden" data-mobile-menu-panel>
-                    <div class="grid gap-2" aria-label="Mobile navigation links">
-                        <a href="#" class="rounded-lg border border-petco-navy/10 px-3 py-2 text-sm font-semibold text-petco-navy transition hover:bg-slate-50">Cat</a>
-                        <a href="#" class="rounded-lg border border-petco-navy/10 bg-petco-navy px-3 py-2 text-sm font-semibold text-white transition hover:bg-petco-blue">Dog</a>
-                        <a href="product.html" class="rounded-lg border border-petco-navy/10 bg-petco-green px-3 py-2 text-sm font-semibold text-petco-navy transition hover:brightness-95">Sale</a>
-                    </div>
-                    <div class="mt-3 border-t border-petco-navy/10 pt-3">
-                        <p class="text-xs font-semibold uppercase tracking-wide text-petco-navy/70">Account</p>
-                        <div class="mt-2 grid gap-2">
-                            <a href="#" class="rounded-lg px-3 py-2 text-sm text-petco-navy transition hover:bg-slate-100">Sign in</a>
-                            <a href="#" class="rounded-lg px-3 py-2 text-sm text-petco-navy transition hover:bg-slate-100">Orders</a>
-                            <a href="#" class="rounded-lg px-3 py-2 text-sm text-petco-navy transition hover:bg-slate-100">Rewards</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </nav>
+            </form>
+            <nav aria-label="Main navigation" class="w-full xl:w-auto xl:flex-shrink-0">
+                <ul class="flex flex-wrap items-center justify-start gap-2 sm:gap-3 xl:flex-nowrap xl:justify-end">
+                    <li><button type="button" class="rounded-full bg-brand px-4 py-2 text-sm font-semibold text-white">Home</button></li>
+                    <li><button type="button" class="rounded-full border border-brand px-4 py-2 text-sm font-semibold text-brand hover:bg-brand hover:text-white">Dogs</button></li>
+                    <li><button type="button" class="rounded-full border border-brand px-4 py-2 text-sm font-semibold text-brand hover:bg-brand hover:text-white">Cats</button></li>
+                    <li><button type="button" class="rounded-full border border-brand px-4 py-2 text-sm font-semibold text-brand hover:bg-brand hover:text-white">Fish</button></li>
+                    <li><button type="button" class="rounded-full border border-brand px-4 py-2 text-sm font-semibold text-brand hover:bg-brand hover:text-white">Other</button></li>
+                    <li class="relative group/account">
+                        <button type="button" aria-label="Open account menu" class="rounded-full border border-brand p-1 hover:bg-brandSoft">
+                            <img src="Images/person icon.jpeg" alt="Account icon" class="h-11 w-11 rounded-full object-cover">
+                        </button>
+                        <ul class="invisible pointer-events-none absolute right-0 top-full z-20 mt-2 w-40 rounded-2xl border border-brand/15 bg-white p-2 opacity-0 shadow-soft transition group-hover/account:visible group-hover/account:pointer-events-auto group-hover/account:opacity-100 group-focus-within/account:visible group-focus-within/account:pointer-events-auto group-focus-within/account:opacity-100">
+                            <li><button type="button" class="block w-full rounded-xl px-3 py-2 text-left text-sm font-medium text-brand hover:bg-brandSoft">Cart</button></li>
+                            <li><button type="button" class="block w-full rounded-xl px-3 py-2 text-left text-sm font-medium text-brand hover:bg-brandSoft">Orders</button></li>
+                            <li><button type="button" class="block w-full rounded-xl px-3 py-2 text-left text-sm font-medium text-brand hover:bg-brandSoft">Rewards</button></li>
+                            <li><button type="button" class="block w-full rounded-xl px-3 py-2 text-left text-sm font-medium text-brand hover:bg-brandSoft">Sign In</button></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </section>
     </header>
 
-    <main class="mx-auto w-full max-w-7xl flex-1 px-4 py-6 md:px-6 md:py-10" aria-label="Product information">
+    <main class="mx-auto w-full max-w-7xl flex-1 px-4 py-8 sm:px-6 lg:px-8" aria-label="Product information">
         <nav aria-label="Breadcrumb" class="mb-6">
-            <ol class="flex flex-wrap items-center gap-2 text-sm text-petco-navy/70">
-                <li><a href="index.html" class="transition hover:text-petco-blue">Home</a></li>
+            <ol class="flex flex-wrap items-center gap-2 text-sm font-medium text-brand/75">
+                <li><a href="index.html" class="transition hover:text-brandLight">Home</a></li>
                 <li aria-hidden="true">/</li>
-                <li><a href="#" class="transition hover:text-petco-blue">Dog</a></li>
+                <li><a href="#" class="transition hover:text-brandLight">Dog</a></li>
                 <li aria-hidden="true">/</li>
-                <li class="font-semibold text-petco-navy" aria-current="page">Premium Salmon Bites</li>
+                <li class="font-semibold text-brand" aria-current="page">Premium Salmon Bites</li>
             </ol>
         </nav>
 
-        <article class="mx-auto w-full max-w-7xl">
-            <div class="grid items-center gap-4 sm:gap-5 md:grid-cols-[60%_40%] md:gap-6">
-                <section aria-label="Product image" class="p-2 md:p-0">
-                    <img src="assets/Salomn-premium-bite.jpg" alt="Premium Salmon Bites for Dogs packaging" class="h-full w-full rounded-[15%] object-cover" loading="lazy">
-                </section>
+        <article class="mx-auto w-full max-w-7xl space-y-10">
+            <section class="grid items-stretch gap-6 lg:grid-cols-[58%_42%]">
+                <figure aria-label="Product image" class="overflow-hidden rounded-3xl border border-brand/10 bg-white shadow-soft">
+                    <img src="assets/Salomn-premium-bite.jpg" alt="Premium Salmon Bites for Dogs packaging" class="h-full w-full min-h-[300px] object-cover" loading="lazy">
+                </figure>
 
-                <section aria-labelledby="product-title" class="flex h-full flex-col rounded-3xl border border-petco-navy/10 bg-white p-6 shadow-[0_16px_40px_rgba(0,25,82,0.1)] md:p-8 lg:p-10">
-                    <h1 id="product-title" class="text-3xl font-semibold leading-tight md:text-4xl">Premium Salmon Bites for Dogs</h1>
+                <section aria-labelledby="product-title" class="flex flex-col rounded-3xl bg-brand p-6 text-white shadow-soft sm:p-8">
+                    <p class="text-xs uppercase tracking-[0.22em] text-white/75">Protein-Rich Dog Treats</p>
+                    <h1 id="product-title" class="mt-3 text-3xl font-extrabold leading-tight sm:text-4xl">Premium Salmon Bites for Dogs</h1>
 
-                    <h3 class="mt-4 flex flex-wrap items-center gap-3 text-base font-medium text-petco-navy/85" aria-label="Rating and product reference code">
-                        <span class="inline-flex text-lg leading-none text-amber-500" aria-label="4 out of 5 stars">★★★★<span class="text-slate-300">★</span></span>
-                        <span class="text-sm uppercase tracking-wide text-petco-navy/65">Ref: DOG-SALM-001</span>
-                    </h3>
+                    <h2 class="mt-4 flex flex-wrap items-center gap-3 text-base font-medium text-white/90" aria-label="Rating and product reference code">
+                        <span class="inline-flex text-lg leading-none text-amber-300" aria-label="4 out of 5 stars">★★★★<span class="text-white/40">★</span></span>
+                        <span class="text-sm uppercase tracking-wide text-white/75">Ref: DOG-SALM-001</span>
+                    </h2>
 
-                    <p class="mt-6 text-4xl font-semibold text-petco-navy" aria-label="Product price">$18.99</p>
+                    <p class="mt-6 text-4xl font-extrabold" aria-label="Product price">$18.99</p>
 
                     <div class="mt-auto flex flex-wrap items-center gap-3 pt-8">
                         <label for="product-quantity" class="sr-only">Select quantity</label>
-                        <select id="product-quantity" name="quantity" class="min-w-24 rounded-xl border border-petco-navy/30 bg-white px-3 py-3 text-sm font-medium text-petco-navy outline-none transition focus:border-petco-blue focus:shadow-[0_0_0_3px_rgba(0,157,220,0.2)]">
+                        <select id="product-quantity" name="quantity" class="min-w-24 rounded-full border border-white/35 bg-white px-4 py-2.5 text-sm font-semibold text-brand outline-none transition focus:ring-2 focus:ring-white">
                             <option value="1">Qty: 1</option>
                             <option value="2">Qty: 2</option>
                             <option value="3">Qty: 3</option>
@@ -237,175 +289,142 @@
                             <option value="5">Qty: 5</option>
                         </select>
 
-                        <button type="button" aria-label="Add Premium Salmon Bites to cart" class="inline-flex items-center justify-center rounded-xl bg-petco-navy px-5 py-3 text-white transition hover:bg-petco-blue focus:outline-none focus-visible:shadow-[0_0_0_3px_rgba(0,157,220,0.35)]">
-                            <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                                <circle cx="9" cy="20" r="1.5"></circle>
-                                <circle cx="18" cy="20" r="1.5"></circle>
-                                <path d="M3 4h2l2.2 10.2a1 1 0 0 0 1 .8h8.9a1 1 0 0 0 1-.8L20 8H7"></path>
-                            </svg>
+                        <button type="button" aria-label="Add Premium Salmon Bites to cart" class="inline-flex items-center justify-center rounded-full bg-white px-5 py-2.5 font-semibold text-brand transition hover:bg-brandSoft focus:outline-none focus:ring-2 focus:ring-white">
+                            Add to Cart
                         </button>
                     </div>
                 </section>
-            </div>
+            </section>
 
-            <section aria-labelledby="product-details-title" class="mt-8 rounded-3xl border border-petco-navy/10 bg-white shadow-[0_16px_40px_rgba(0,25,82,0.1)]">
-                <div class="grid md:grid-cols-[65%_1px_35%]">
-                    <section aria-label="Detailed product description" class="p-6 md:p-8 lg:p-10">
-                        <h2 id="product-details-title" class="text-2xl font-semibold leading-tight md:text-3xl">Detailed Description</h2>
-                        <p class="mt-4 text-base leading-relaxed text-petco-navy/85">
+            <section aria-labelledby="product-details-title" class="rounded-3xl border border-brand/10 bg-white p-6 shadow-soft md:p-8 lg:p-10">
+                <div class="grid gap-8 md:grid-cols-[65%_35%]">
+                    <section aria-label="Detailed product description">
+                        <h2 id="product-details-title" class="text-3xl font-extrabold leading-tight text-brand">Detailed Description</h2>
+                        <p class="mt-4 text-base leading-relaxed text-brand/90">
                             Premium Salmon Bites for Dogs are crafted to deliver a protein-rich reward with a savory flavor dogs love. Real salmon is the first ingredient, providing naturally occurring omega-3 fatty acids that help support healthy skin and a shiny coat.
                         </p>
-                        <p class="mt-4 text-base leading-relaxed text-petco-navy/85">
+                        <p class="mt-4 text-base leading-relaxed text-brand/90">
                             Each bite is gently baked for a satisfying texture and made without artificial colors or fillers. These treats are ideal for training sessions, daily rewards, or breaking into smaller pieces for portion-controlled snacking.
                         </p>
-                        <p class="mt-4 text-base leading-relaxed text-petco-navy/85">
+                        <p class="mt-4 text-base leading-relaxed text-brand/90">
                             Suitable for adult dogs of all breeds, this formula combines quality protein, wholesome grains, and vegetable fibers to support everyday vitality. Always provide fresh water and adjust daily food portions to account for treats.
                         </p>
                     </section>
 
-                    <div class="mx-auto hidden w-px bg-gradient-to-b from-transparent via-petco-navy/20 to-transparent md:block" aria-hidden="true"></div>
-
-                    <section aria-label="Product materials" class="p-6 md:p-8">
-                        <h2 class="text-2xl font-semibold capitalize leading-tight md:text-3xl">materials</h2>
-                        <table class="mt-5 w-full border-collapse text-left text-sm text-petco-navy/90" aria-label="Materials used on the product">
+                    <section aria-label="Product materials" class="rounded-2xl border border-brand/10 bg-brandSoft/35 p-5 sm:p-6">
+                        <h2 class="text-2xl font-extrabold capitalize leading-tight text-brand">materials</h2>
+                        <table class="mt-5 w-full border-collapse text-left text-sm text-brand/90" aria-label="Materials used on the product">
                             <tbody>
-                                <tr class="border-b border-petco-navy/10">
-                                    <td class="py-3">Real salmon</td>
-                                </tr>
-                                <tr class="border-b border-petco-navy/10">
-                                    <td class="py-3">Brown rice</td>
-                                </tr>
-                                <tr class="border-b border-petco-navy/10">
-                                    <td class="py-3">Oat flour</td>
-                                </tr>
-                                <tr class="border-b border-petco-navy/10">
-                                    <td class="py-3">Flaxseed meal</td>
-                                </tr>
-                                <tr class="border-b border-petco-navy/10">
-                                    <td class="py-3">Pea fiber</td>
-                                </tr>
-                                <tr>
-                                    <td class="py-3">Mixed tocopherols (natural preservative)</td>
-                                </tr>
+                                <tr class="border-b border-brand/10"><td class="py-3">Real salmon</td></tr>
+                                <tr class="border-b border-brand/10"><td class="py-3">Brown rice</td></tr>
+                                <tr class="border-b border-brand/10"><td class="py-3">Oat flour</td></tr>
+                                <tr class="border-b border-brand/10"><td class="py-3">Flaxseed meal</td></tr>
+                                <tr class="border-b border-brand/10"><td class="py-3">Pea fiber</td></tr>
+                                <tr><td class="py-3">Mixed tocopherols (natural preservative)</td></tr>
                             </tbody>
                         </table>
                     </section>
                 </div>
             </section>
 
-            <section aria-labelledby="similar-products-title" class="mt-10">
-                <h2 id="similar-products-title" class="text-2xl font-semibold leading-tight text-petco-navy md:text-3xl">Similar Products</h2>
-
+            <section aria-labelledby="similar-products-title">
+                <h2 id="similar-products-title" class="text-3xl font-extrabold text-brand">Similar Products</h2>
                 <div class="similar-products-carousel mt-6" data-carousel aria-label="Similar products carousel">
                     <div class="similar-products-viewport" data-carousel-viewport>
                         <div class="similar-products-track">
-                            <article class="similar-product-card" aria-label="Ocean Whitefish Crunch product card" role="group">
-                                <img src="assets/Ocean-white-fish.jpg.avif" alt="Ocean Whitefish Crunch for dogs" class="similar-product-image" loading="lazy">
-                                <h2 class="similar-product-name">Ocean Whitefish Crunch</h2>
-                                <h1 class="similar-product-price" aria-label="Product price">$16.49</h1>
-                                <h3 class="similar-product-rating" aria-label="4 out of 5 stars">★★★★<span aria-hidden="true">☆</span></h3>
+                            <article class="similar-product-card rounded-3xl border border-brand/10 bg-white p-4 text-center shadow-soft" aria-label="Ocean Whitefish Crunch product card" role="group">
+                                <img src="assets/Ocean-white-fish.jpg.avif" alt="Ocean Whitefish Crunch for dogs" class="h-44 w-full rounded-2xl object-cover" loading="lazy">
+                                <h3 class="mt-4 text-lg font-bold text-brand">Ocean Whitefish Crunch</h3>
+                                <p class="mt-1 text-xl font-extrabold text-brandLight" aria-label="Product price">$16.49</p>
+                                <p class="mt-2 text-lg text-amber-500" aria-label="4 out of 5 stars">★★★★<span aria-hidden="true" class="text-slate-300">☆</span></p>
                             </article>
 
-                            <article class="similar-product-card" aria-label="Turkey Tender Training Bites product card" role="group">
-                                <img src="assets/turkey-training-bites.jpg.webp" alt="Turkey Tender Training Bites for dogs" class="similar-product-image" loading="lazy">
-                                <h2 class="similar-product-name">Turkey Tender Training Bites</h2>
-                                <h1 class="similar-product-price" aria-label="Product price">$14.99</h1>
-                                <h3 class="similar-product-rating" aria-label="5 out of 5 stars">★★★★★</h3>
+                            <article class="similar-product-card rounded-3xl border border-brand/10 bg-white p-4 text-center shadow-soft" aria-label="Turkey Tender Training Bites product card" role="group">
+                                <img src="assets/turkey-training-bites.jpg.webp" alt="Turkey Tender Training Bites for dogs" class="h-44 w-full rounded-2xl object-cover" loading="lazy">
+                                <h3 class="mt-4 text-lg font-bold text-brand">Turkey Tender Training Bites</h3>
+                                <p class="mt-1 text-xl font-extrabold text-brandLight" aria-label="Product price">$14.99</p>
+                                <p class="mt-2 text-lg text-amber-500" aria-label="5 out of 5 stars">★★★★★</p>
                             </article>
 
-                            <article class="similar-product-card" aria-label="Lamb and Brown Rice Minis product card" role="group">
-                                <img src="assets/lamb-brown-rice.jpeg.webp" alt="Lamb and Brown Rice Minis for dogs" class="similar-product-image" loading="lazy">
-                                <h2 class="similar-product-name">Lamb and Brown Rice Minis</h2>
-                                <h1 class="similar-product-price" aria-label="Product price">$17.25</h1>
-                                <h3 class="similar-product-rating" aria-label="4 out of 5 stars">★★★★<span aria-hidden="true">☆</span></h3>
+                            <article class="similar-product-card rounded-3xl border border-brand/10 bg-white p-4 text-center shadow-soft" aria-label="Lamb and Brown Rice Minis product card" role="group">
+                                <img src="assets/lamb-brown-rice.jpeg.webp" alt="Lamb and Brown Rice Minis for dogs" class="h-44 w-full rounded-2xl object-cover" loading="lazy">
+                                <h3 class="mt-4 text-lg font-bold text-brand">Lamb and Brown Rice Minis</h3>
+                                <p class="mt-1 text-xl font-extrabold text-brandLight" aria-label="Product price">$17.25</p>
+                                <p class="mt-2 text-lg text-amber-500" aria-label="4 out of 5 stars">★★★★<span aria-hidden="true" class="text-slate-300">☆</span></p>
                             </article>
 
-                            <article class="similar-product-card" aria-label="Chicken and Pumpkin Rewards product card" role="group">
-                                <img src="assets/Chicke-pumpkin-twist.jpeg.webp" alt="Chicken and Pumpkin Rewards for dogs" class="similar-product-image" loading="lazy">
-                                <h2 class="similar-product-name">Chicken and Pumpkin Rewards</h2>
-                                <h1 class="similar-product-price" aria-label="Product price">$13.75</h1>
-                                <h3 class="similar-product-rating" aria-label="3 out of 5 stars">★★★<span aria-hidden="true">☆☆</span></h3>
+                            <article class="similar-product-card rounded-3xl border border-brand/10 bg-white p-4 text-center shadow-soft" aria-label="Chicken and Pumpkin Rewards product card" role="group">
+                                <img src="assets/Chicke-pumpkin-twist.jpeg.webp" alt="Chicken and Pumpkin Rewards for dogs" class="h-44 w-full rounded-2xl object-cover" loading="lazy">
+                                <h3 class="mt-4 text-lg font-bold text-brand">Chicken and Pumpkin Rewards</h3>
+                                <p class="mt-1 text-xl font-extrabold text-brandLight" aria-label="Product price">$13.75</p>
+                                <p class="mt-2 text-lg text-amber-500" aria-label="3 out of 5 stars">★★★<span aria-hidden="true" class="text-slate-300">☆☆</span></p>
                             </article>
 
-                            <article class="similar-product-card" aria-label="Beef Protein Jerky Strips product card" role="group">
-                                <img src="assets/beef-jerky-strips.jpg.webp" alt="Beef Protein Jerky Strips for dogs" class="similar-product-image" loading="lazy">
-                                <h2 class="similar-product-name">Beef Protein Jerky Strips</h2>
-                                <h1 class="similar-product-price" aria-label="Product price">$19.89</h1>
-                                <h3 class="similar-product-rating" aria-label="5 out of 5 stars">★★★★★</h3>
+                            <article class="similar-product-card rounded-3xl border border-brand/10 bg-white p-4 text-center shadow-soft" aria-label="Beef Protein Jerky Strips product card" role="group">
+                                <img src="assets/beef-jerky-strips.jpg.webp" alt="Beef Protein Jerky Strips for dogs" class="h-44 w-full rounded-2xl object-cover" loading="lazy">
+                                <h3 class="mt-4 text-lg font-bold text-brand">Beef Protein Jerky Strips</h3>
+                                <p class="mt-1 text-xl font-extrabold text-brandLight" aria-label="Product price">$19.89</p>
+                                <p class="mt-2 text-lg text-amber-500" aria-label="5 out of 5 stars">★★★★★</p>
                             </article>
 
-                            <article class="similar-product-card" aria-label="Cod and Sweet Potato Bites product card" role="group">
-                                <img src="assets/cod-sweet-potato.jpeg.webp" alt="Cod and Sweet Potato Bites for dogs" class="similar-product-image" loading="lazy">
-                                <h2 class="similar-product-name">Cod and Sweet Potato Bites</h2>
-                                <h1 class="similar-product-price" aria-label="Product price">$15.39</h1>
-                                <h3 class="similar-product-rating" aria-label="4 out of 5 stars">★★★★<span aria-hidden="true">☆</span></h3>
+                            <article class="similar-product-card rounded-3xl border border-brand/10 bg-white p-4 text-center shadow-soft" aria-label="Cod and Sweet Potato Bites product card" role="group">
+                                <img src="assets/cod-sweet-potato.jpeg.webp" alt="Cod and Sweet Potato Bites for dogs" class="h-44 w-full rounded-2xl object-cover" loading="lazy">
+                                <h3 class="mt-4 text-lg font-bold text-brand">Cod and Sweet Potato Bites</h3>
+                                <p class="mt-1 text-xl font-extrabold text-brandLight" aria-label="Product price">$15.39</p>
+                                <p class="mt-2 text-lg text-amber-500" aria-label="4 out of 5 stars">★★★★<span aria-hidden="true" class="text-slate-300">☆</span></p>
                             </article>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <section aria-labelledby="reviews-title" class="mt-10 rounded-3xl border border-petco-navy/10 bg-white p-6 shadow-[0_16px_40px_rgba(0,25,82,0.1)] md:p-8 lg:p-10">
-                <h2 id="reviews-title" class="text-2xl font-semibold leading-tight text-petco-navy md:text-3xl">Reviews</h2>
+            <section aria-labelledby="reviews-title" class="rounded-3xl border border-brand/10 bg-white p-6 shadow-soft md:p-8 lg:p-10">
+                <h2 id="reviews-title" class="text-3xl font-extrabold leading-tight text-brand">Reviews</h2>
 
-                <div class="mt-6 grid gap-8 md:grid-cols-[40%_60%] md:items-start">
+                <div class="mt-6 grid gap-8 lg:grid-cols-[40%_60%] lg:items-start">
                     <section aria-labelledby="rating-breakdown-title">
-                        <h3 id="rating-breakdown-title" class="text-lg font-semibold text-petco-navy">Rating Breakdown</h3>
+                        <h3 id="rating-breakdown-title" class="text-xl font-bold text-brand">Rating Breakdown</h3>
 
                         <div class="mt-5 space-y-3" role="img" aria-label="Horizontal bar chart showing ratings from 5 stars to 1 star">
                             <div class="grid grid-cols-[1.5rem_1fr_auto] items-center gap-3">
-                                <span class="text-sm font-semibold text-petco-navy">5</span>
-                                <div class="h-3 rounded-full bg-slate-200">
-                                    <div class="h-3 rounded-full bg-petco-blue" style="width: 78%;"></div>
-                                </div>
-                                <span class="text-xs font-medium text-petco-navy/70">78%</span>
+                                <span class="text-sm font-semibold text-brand">5</span>
+                                <div class="h-3 rounded-full bg-brandSoft"><div class="h-3 rounded-full bg-brand" style="width: 78%;"></div></div>
+                                <span class="text-xs font-medium text-brand/70">78%</span>
                             </div>
-
                             <div class="grid grid-cols-[1.5rem_1fr_auto] items-center gap-3">
-                                <span class="text-sm font-semibold text-petco-navy">4</span>
-                                <div class="h-3 rounded-full bg-slate-200">
-                                    <div class="h-3 rounded-full bg-petco-blue" style="width: 54%;"></div>
-                                </div>
-                                <span class="text-xs font-medium text-petco-navy/70">54%</span>
+                                <span class="text-sm font-semibold text-brand">4</span>
+                                <div class="h-3 rounded-full bg-brandSoft"><div class="h-3 rounded-full bg-brand" style="width: 54%;"></div></div>
+                                <span class="text-xs font-medium text-brand/70">54%</span>
                             </div>
-
                             <div class="grid grid-cols-[1.5rem_1fr_auto] items-center gap-3">
-                                <span class="text-sm font-semibold text-petco-navy">3</span>
-                                <div class="h-3 rounded-full bg-slate-200">
-                                    <div class="h-3 rounded-full bg-petco-blue" style="width: 26%;"></div>
-                                </div>
-                                <span class="text-xs font-medium text-petco-navy/70">26%</span>
+                                <span class="text-sm font-semibold text-brand">3</span>
+                                <div class="h-3 rounded-full bg-brandSoft"><div class="h-3 rounded-full bg-brand" style="width: 26%;"></div></div>
+                                <span class="text-xs font-medium text-brand/70">26%</span>
                             </div>
-
                             <div class="grid grid-cols-[1.5rem_1fr_auto] items-center gap-3">
-                                <span class="text-sm font-semibold text-petco-navy">2</span>
-                                <div class="h-3 rounded-full bg-slate-200">
-                                    <div class="h-3 rounded-full bg-petco-blue" style="width: 14%;"></div>
-                                </div>
-                                <span class="text-xs font-medium text-petco-navy/70">14%</span>
+                                <span class="text-sm font-semibold text-brand">2</span>
+                                <div class="h-3 rounded-full bg-brandSoft"><div class="h-3 rounded-full bg-brand" style="width: 14%;"></div></div>
+                                <span class="text-xs font-medium text-brand/70">14%</span>
                             </div>
-
                             <div class="grid grid-cols-[1.5rem_1fr_auto] items-center gap-3">
-                                <span class="text-sm font-semibold text-petco-navy">1</span>
-                                <div class="h-3 rounded-full bg-slate-200">
-                                    <div class="h-3 rounded-full bg-petco-blue" style="width: 7%;"></div>
-                                </div>
-                                <span class="text-xs font-medium text-petco-navy/70">7%</span>
+                                <span class="text-sm font-semibold text-brand">1</span>
+                                <div class="h-3 rounded-full bg-brandSoft"><div class="h-3 rounded-full bg-brand" style="width: 7%;"></div></div>
+                                <span class="text-xs font-medium text-brand/70">7%</span>
                             </div>
                         </div>
                     </section>
 
-                    <section aria-labelledby="overall-rating-title" class="rounded-2xl border border-petco-navy/10 bg-slate-50 p-5 md:p-6">
+                    <section aria-labelledby="overall-rating-title" class="rounded-2xl border border-brand/10 bg-brandSoft/35 p-5 md:p-6">
                         <div class="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
-                            <p id="overall-rating-title" class="text-4xl font-semibold text-petco-navy" aria-label="Overall rating 4 out of 5 stars">★★★★☆ 4.0</p>
+                            <p id="overall-rating-title" class="text-4xl font-extrabold text-brand" aria-label="Overall rating 4 out of 5 stars">★★★★☆ 4.0</p>
 
                             <form aria-label="Rate this product" class="w-full lg:w-auto">
                                 <fieldset>
-                                    <legend class="text-base font-semibold text-petco-navy">Review it</legend>
+                                    <legend class="text-base font-bold text-brand">Review it</legend>
                                     <div class="mt-3 flex flex-wrap items-center gap-3" role="radiogroup" aria-label="Select your star rating" data-star-rating>
                                         <span>
                                             <input id="review-stars-1" type="radio" name="review-stars" value="1" class="sr-only">
-                                            <label for="review-stars-1" class="review-star-btn inline-flex h-10 w-10 items-center justify-center rounded-xl border border-petco-navy/30 bg-white text-2xl leading-none text-slate-400 transition hover:border-petco-blue hover:text-petco-blue" data-star-button data-star-value="1" aria-label="1 star">
+                                            <label for="review-stars-1" class="review-star-btn inline-flex h-10 w-10 items-center justify-center rounded-xl border border-brand/30 bg-white text-2xl leading-none text-slate-400 transition hover:border-brandLight hover:text-brandLight" data-star-button data-star-value="1" aria-label="1 star">
                                                 <span aria-hidden="true">☆</span>
                                                 <span class="sr-only">1 star</span>
                                             </label>
@@ -413,7 +432,7 @@
 
                                         <span>
                                             <input id="review-stars-2" type="radio" name="review-stars" value="2" class="sr-only">
-                                            <label for="review-stars-2" class="review-star-btn inline-flex h-10 w-10 items-center justify-center rounded-xl border border-petco-navy/30 bg-white text-2xl leading-none text-slate-400 transition hover:border-petco-blue hover:text-petco-blue" data-star-button data-star-value="2" aria-label="2 stars">
+                                            <label for="review-stars-2" class="review-star-btn inline-flex h-10 w-10 items-center justify-center rounded-xl border border-brand/30 bg-white text-2xl leading-none text-slate-400 transition hover:border-brandLight hover:text-brandLight" data-star-button data-star-value="2" aria-label="2 stars">
                                                 <span aria-hidden="true">☆</span>
                                                 <span class="sr-only">2 stars</span>
                                             </label>
@@ -421,7 +440,7 @@
 
                                         <span>
                                             <input id="review-stars-3" type="radio" name="review-stars" value="3" class="peer sr-only">
-                                            <label for="review-stars-3" class="review-star-btn inline-flex h-10 w-10 items-center justify-center rounded-xl border border-petco-navy/30 bg-white text-2xl leading-none text-slate-400 transition hover:border-petco-blue hover:text-petco-blue" data-star-button data-star-value="3" aria-label="3 stars">
+                                            <label for="review-stars-3" class="review-star-btn inline-flex h-10 w-10 items-center justify-center rounded-xl border border-brand/30 bg-white text-2xl leading-none text-slate-400 transition hover:border-brandLight hover:text-brandLight" data-star-button data-star-value="3" aria-label="3 stars">
                                                 <span aria-hidden="true">☆</span>
                                                 <span class="sr-only">3 stars</span>
                                             </label>
@@ -429,7 +448,7 @@
 
                                         <span>
                                             <input id="review-stars-4" type="radio" name="review-stars" value="4" class="sr-only">
-                                            <label for="review-stars-4" class="review-star-btn inline-flex h-10 w-10 items-center justify-center rounded-xl border border-petco-navy/30 bg-white text-2xl leading-none text-slate-400 transition hover:border-petco-blue hover:text-petco-blue" data-star-button data-star-value="4" aria-label="4 stars">
+                                            <label for="review-stars-4" class="review-star-btn inline-flex h-10 w-10 items-center justify-center rounded-xl border border-brand/30 bg-white text-2xl leading-none text-slate-400 transition hover:border-brandLight hover:text-brandLight" data-star-button data-star-value="4" aria-label="4 stars">
                                                 <span aria-hidden="true">☆</span>
                                                 <span class="sr-only">4 stars</span>
                                             </label>
@@ -437,7 +456,7 @@
 
                                         <span>
                                             <input id="review-stars-5" type="radio" name="review-stars" value="5" class="sr-only" checked>
-                                            <label for="review-stars-5" class="review-star-btn inline-flex h-10 w-10 items-center justify-center rounded-xl border border-petco-navy/30 bg-white text-2xl leading-none text-slate-400 transition hover:border-petco-blue hover:text-petco-blue" data-star-button data-star-value="5" aria-label="5 stars">
+                                            <label for="review-stars-5" class="review-star-btn inline-flex h-10 w-10 items-center justify-center rounded-xl border border-brand/30 bg-white text-2xl leading-none text-slate-400 transition hover:border-brandLight hover:text-brandLight" data-star-button data-star-value="5" aria-label="5 stars">
                                                 <span aria-hidden="true">☆</span>
                                                 <span class="sr-only">5 stars</span>
                                             </label>
@@ -450,24 +469,24 @@
                 </div>
 
                 <section aria-labelledby="user-reviews-title" class="mt-8">
-                    <h2 id="user-reviews-title" class="text-2xl font-semibold leading-tight text-petco-navy">What Customers Are Saying</h2>
+                    <h2 id="user-reviews-title" class="text-2xl font-extrabold leading-tight text-brand">What Customers Are Saying</h2>
 
-                    <article class="mt-6 rounded-2xl border border-petco-navy/10 bg-white p-5" style="margin-bottom: 3%;" aria-label="5 star review by charliepaws">
-                        <p class="text-xl font-semibold text-petco-navy" aria-label="5 out of 5 stars">★★★★★</p>
-                        <h3 class="mt-3 text-base leading-relaxed text-petco-navy/90">"My dog gets excited every time he hears this bag open. Great ingredients and no stomach issues at all."</h3>
-                        <h3 class="mt-4 text-sm font-bold uppercase tracking-wide text-petco-navy">@charliepaws</h3>
+                    <article class="mt-6 rounded-2xl border border-brand/10 bg-white p-5" aria-label="5 star review by charliepaws">
+                        <p class="text-xl font-semibold text-brand" aria-label="5 out of 5 stars">★★★★★</p>
+                        <h3 class="mt-3 text-base leading-relaxed text-brand/90">"My dog gets excited every time he hears this bag open. Great ingredients and no stomach issues at all."</h3>
+                        <h3 class="mt-4 text-sm font-bold uppercase tracking-wide text-brand">@charliepaws</h3>
                     </article>
 
-                    <article class="rounded-2xl border border-petco-navy/10 bg-white p-5" style="margin-bottom: 3%;" aria-label="4 star review by miloandme">
-                        <p class="text-xl font-semibold text-petco-navy" aria-label="4 out of 5 stars">★★★★☆</p>
-                        <h3 class="mt-3 text-base leading-relaxed text-petco-navy/90">"Perfect size for training rewards and the salmon smell is not too strong. I would buy this again."</h3>
-                        <h3 class="mt-4 text-sm font-bold uppercase tracking-wide text-petco-navy">@miloandme</h3>
+                    <article class="mt-4 rounded-2xl border border-brand/10 bg-white p-5" aria-label="4 star review by miloandme">
+                        <p class="text-xl font-semibold text-brand" aria-label="4 out of 5 stars">★★★★☆</p>
+                        <h3 class="mt-3 text-base leading-relaxed text-brand/90">"Perfect size for training rewards and the salmon smell is not too strong. I would buy this again."</h3>
+                        <h3 class="mt-4 text-sm font-bold uppercase tracking-wide text-brand">@miloandme</h3>
                     </article>
 
-                    <article class="rounded-2xl border border-petco-navy/10 bg-white p-5" aria-label="3 star review by beachdogmom">
-                        <p class="text-xl font-semibold text-petco-navy" aria-label="3 out of 5 stars">★★★☆☆</p>
-                        <h3 class="mt-3 text-base leading-relaxed text-petco-navy/90">"Good quality overall, but my pup prefers softer treats. Still a solid option for active dogs."</h3>
-                        <h3 class="mt-4 text-sm font-bold uppercase tracking-wide text-petco-navy">@beachdogmom</h3>
+                    <article class="mt-4 rounded-2xl border border-brand/10 bg-white p-5" aria-label="3 star review by beachdogmom">
+                        <p class="text-xl font-semibold text-brand" aria-label="3 out of 5 stars">★★★☆☆</p>
+                        <h3 class="mt-3 text-base leading-relaxed text-brand/90">"Good quality overall, but my pup prefers softer treats. Still a solid option for active dogs."</h3>
+                        <h3 class="mt-4 text-sm font-bold uppercase tracking-wide text-brand">@beachdogmom</h3>
                     </article>
                 </section>
             </section>
@@ -475,30 +494,6 @@
     </main>
 
     <script>
-        const mobileMenuButton = document.querySelector('[data-mobile-menu-button]');
-        const mobileMenuPanel = document.querySelector('[data-mobile-menu-panel]');
-
-        if (mobileMenuButton && mobileMenuPanel) {
-            const closeMobileMenu = () => {
-                mobileMenuPanel.classList.add('hidden');
-                mobileMenuButton.setAttribute('aria-expanded', 'false');
-                mobileMenuButton.setAttribute('aria-label', 'Open navigation menu');
-            };
-
-            mobileMenuButton.addEventListener('click', () => {
-                const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
-                mobileMenuButton.setAttribute('aria-expanded', String(!isExpanded));
-                mobileMenuButton.setAttribute('aria-label', isExpanded ? 'Open navigation menu' : 'Close navigation menu');
-                mobileMenuPanel.classList.toggle('hidden', isExpanded);
-            });
-
-            window.addEventListener('resize', () => {
-                if (window.innerWidth >= 768) {
-                    closeMobileMenu();
-                }
-            });
-        }
-
         document.querySelectorAll('[data-star-rating]').forEach((ratingGroup) => {
             const starButtons = Array.from(ratingGroup.querySelectorAll('[data-star-button]'));
             const starInputs = Array.from(ratingGroup.querySelectorAll('input[type="radio"][name="review-stars"]'));
@@ -512,11 +507,11 @@
                     const buttonValue = Number(button.dataset.starValue);
                     const isActive = buttonValue <= value;
 
-                    button.classList.toggle('border-petco-blue', isActive);
-                    button.classList.toggle('bg-petco-blue/10', isActive);
-                    button.classList.toggle('text-petco-blue', isActive);
+                    button.classList.toggle('border-brandLight', isActive);
+                    button.classList.toggle('bg-brandSoft', isActive);
+                    button.classList.toggle('text-brandLight', isActive);
                     button.classList.toggle('text-slate-400', !isActive);
-                    button.classList.toggle('border-petco-navy/30', !isActive);
+                    button.classList.toggle('border-brand/30', !isActive);
                 });
             };
 
@@ -545,38 +540,40 @@
         });
     </script>
 
-    <footer class="mt-4 bg-petco-blue text-white" aria-label="Footer">
-        <div class="mx-auto grid w-full max-w-7xl gap-6 px-4 py-7 md:grid-cols-3 md:px-6">
-            <section aria-labelledby="footer-categories">
-                <h2 id="footer-categories" class="inline-block rounded-md bg-petco-navy px-2 py-1 text-sm font-semibold uppercase tracking-wide text-white">Categories</h2>
-                <ul class="mt-4 space-y-2 text-sm">
-                    <li><a href="#" class="transition hover:text-petco-green">Cat</a></li>
-                    <li><a href="#" class="transition hover:text-petco-green">Dog</a></li>
-                    <li><a href="#" class="transition hover:text-petco-green">Reptile</a></li>
-                    <li><a href="#" class="transition hover:text-petco-green">Bird</a></li>
-                    <li><a href="#" class="transition hover:text-petco-green">Fish</a></li>
-                    <li><a href="#" class="transition hover:text-petco-green">Small Animals</a></li>
+    <footer class="border-t border-brand/15 bg-white">
+        <section class="mx-auto grid w-full max-w-7xl gap-4 px-4 py-10 sm:px-6 lg:grid-cols-[1fr_1fr_1fr_auto] lg:px-8" aria-label="Footer actions and links">
+            <nav class="relative w-fit group/help" aria-label="Help links">
+                <button type="button" class="rounded-full bg-brand px-5 py-3 font-semibold text-white">Help</button>
+                <ul class="invisible pointer-events-none absolute bottom-full left-0 z-20 mb-1 w-52 rounded-2xl border border-brand/15 bg-white p-3 opacity-0 shadow-soft transition group-hover/help:visible group-hover/help:pointer-events-auto group-hover/help:opacity-100 group-focus-within/help:visible group-focus-within/help:pointer-events-auto group-focus-within/help:opacity-100">
+                    <li><button type="button" class="mt-1 block w-full rounded-xl px-3 py-2 text-left font-medium text-brand hover:bg-brandSoft">Shipping</button></li>
+                    <li><button type="button" class="mt-1 block w-full rounded-xl px-3 py-2 text-left font-medium text-brand hover:bg-brandSoft">Returns</button></li>
+                    <li><button type="button" class="mt-1 block w-full rounded-xl px-3 py-2 text-left font-medium text-brand hover:bg-brandSoft">FAQs</button></li>
                 </ul>
+            </nav>
+
+            <section aria-label="Footer about action">
+                <button type="button" class="rounded-full border border-brand px-5 py-3 font-semibold text-brand hover:bg-brand hover:text-white">About</button>
             </section>
 
-            <section aria-labelledby="footer-legal">
-                <h2 id="footer-legal" class="inline-block rounded-md bg-petco-navy px-2 py-1 text-sm font-semibold uppercase tracking-wide text-white">Legal</h2>
-                <ul class="mt-4 space-y-2 text-sm">
-                    <li><a href="#" class="transition hover:text-petco-green">Terms and Conditions</a></li>
-                    <li><a href="#" class="transition hover:text-petco-green">Privacy Policy</a></li>
-                    <li><a href="#" class="transition hover:text-petco-green">About the Brand</a></li>
-                </ul>
+            <section aria-label="Footer contact action">
+                <button type="button" class="rounded-full border border-brand px-5 py-3 font-semibold text-brand hover:bg-brand hover:text-white">Contact</button>
             </section>
 
-            <section aria-labelledby="footer-contact">
-                <h2 id="footer-contact" class="inline-block rounded-md bg-petco-navy px-2 py-1 text-sm font-semibold uppercase tracking-wide text-white">Contact</h2>
-                <ul class="mt-4 space-y-2 text-sm">
-                    <li><a href="mailto:support@petco.com" class="transition hover:text-petco-green">support@petco.com</a></li>
-                    <li><a href="tel:+18007384267" class="transition hover:text-petco-green">1-800-PETCO-67</a></li>
-                    <li><a href="#" class="transition hover:text-petco-green">Store Locator</a></li>
-                </ul>
-            </section>
-        </div>
+            <nav class="flex items-center gap-3 lg:justify-end" aria-label="Social media">
+                <button type="button" aria-label="Facebook" class="rounded-full border border-brand p-2 text-brand hover:bg-brand hover:text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5"><path d="M13.5 9H16V6h-2.5C11.57 6 10 7.57 10 9.5V12H8v3h2v6h3v-6h2.5l.5-3H13v-2.5c0-.28.22-.5.5-.5Z"/></svg>
+                </button>
+                <button type="button" aria-label="Instagram" class="rounded-full border border-brand p-2 text-brand hover:bg-brand hover:text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5"><path d="M7.5 2A5.5 5.5 0 0 0 2 7.5v9A5.5 5.5 0 0 0 7.5 22h9a5.5 5.5 0 0 0 5.5-5.5v-9A5.5 5.5 0 0 0 16.5 2h-9Zm0 2h9A3.5 3.5 0 0 1 20 7.5v9a3.5 3.5 0 0 1-3.5 3.5h-9A3.5 3.5 0 0 1 4 16.5v-9A3.5 3.5 0 0 1 7.5 4Zm9.75 1a1.25 1.25 0 1 0 0 2.5 1.25 1.25 0 0 0 0-2.5ZM12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10Zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6Z"/></svg>
+                </button>
+                <button type="button" aria-label="X" class="rounded-full border border-brand p-2 text-brand hover:bg-brand hover:text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5"><path d="M18.244 2H21l-6.53 7.463L22 22h-6.172l-4.833-6.314L5.47 22H2.71l6.985-7.987L2 2h6.327l4.368 5.76L18.244 2Zm-2.163 18h1.708L7.4 3.895H5.57L16.081 20Z"/></svg>
+                </button>
+            </nav>
+        </section>
+        <section class="border-t border-brand/10 px-4 py-4 text-center text-sm font-medium text-brand/80" aria-label="Copyright">
+            <p>©2026 Petco Animal Supplies, Inc. All rights reserved.</p>
+        </section>
     </footer>
 </body>
 </html>
