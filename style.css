@@ -113,6 +113,17 @@
 	color: rgb(0 25 82);
 }
 
+.similar-product-price {
+	width: 85%;
+	margin-left: 15%;
+	margin-top: 0.35rem;
+	font-size: 1.15rem;
+	font-weight: 700;
+	line-height: 1.2;
+	text-align: left;
+	color: rgb(0 25 82);
+}
+
 .similar-product-rating {
 	margin-top: auto;
 	padding-top: 0.65rem;
