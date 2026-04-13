@@ -1,117 +1,95 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Petco | Where the pets go.</title>
-    <meta name="description" content="Shop essentials for cats, dogs, and more at Petco. Discover everyday care, premium products, and featured deals.">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        petco: {
-                            navy: 'rgb(0 25 82)',
-                            blue: 'rgb(0 157 220)',
-                            green: 'rgb(136 198 90)'
-                        }
-                    },
-                    fontFamily: {
-                        petco: ['Petco Circular', 'Segoe UI', 'Roboto', 'sans-serif']
-                    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Petco | Where the pets go.</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<script>
+tailwind.config = {
+    theme: {
+        extend: {
+            colors: {
+                petco: {
+                    navy: 'rgb(0 25 82)',
+                    blue: 'rgb(0 157 220)',
+                    green: 'rgb(136 198 90)'
                 }
+            },
+            fontFamily: {
+                petco: ['Petco Circular', 'Segoe UI', 'Roboto', 'sans-serif']
             }
-        };
-    </script>
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            "name": "Petco",
-            "slogan": "Where the pets go.",
-            "url": "/",
-            "logo": "assets/petco_logo_2025.png"
         }
-    </script>
-    <link rel="stylesheet" href="style.css">
+    }
+}
+</script>
+
+<link rel="stylesheet" href="style.css">
 </head>
+
 <body class="font-petco flex min-h-screen flex-col bg-slate-100 text-petco-navy">
-    <header class="sticky top-0 z-50 px-3 pt-3 md:px-6">
-        <nav class="navbar-shell mx-auto w-full max-w-7xl rounded-2xl border border-petco-navy/20 p-3 md:p-4" aria-label="Main navigation">
-            <div class="flex flex-wrap items-center gap-3 md:gap-4">
-                <a href="#" class="order-1 inline-flex items-center gap-2 rounded-xl px-2 py-1 transition hover:bg-white/15" aria-label="Petco home">
-                    <img src="assets/petco_logo_2025.png" alt="Petco logo" class="h-10 w-auto object-contain" loading="eager">
-                    <span class="hidden text-sm font-medium text-petco-navy sm:inline">Where the pets go.</span>
-                </a>
 
-                <form role="search" aria-label="Site search" class="order-3 w-full md:order-2 md:ml-auto md:max-w-md md:flex-1">
-                    <label for="site-search" class="sr-only">Search products</label>
-                    <div class="relative">
-                        <svg class="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-petco-navy/50" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                            <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"></circle>
-                            <path d="M20 20L16.65 16.65" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
-                        </svg>
-                        <input id="site-search" name="q" type="search" placeholder="Search food, toys, treats..." class="w-full rounded-xl border border-petco-blue/25 bg-white/90 py-2.5 pl-10 pr-3 text-sm text-petco-navy placeholder:text-petco-navy/50 outline-none ring-0 transition focus:border-petco-blue focus:bg-white focus:shadow-[0_0_0_3px_rgba(0,157,220,0.2)]">
-                    </div>
-                </form>
+<!-- HEADER -->
+<header class="sticky top-0 z-50 px-3 pt-3 md:px-6">
+<nav class="navbar-shell mx-auto w-full max-w-7xl rounded-2xl border border-petco-navy/20 p-3 md:p-4">
 
-                <details class="account-menu order-2 ml-auto md:order-4 md:ml-0">
-                    <summary class="list-none rounded-xl border border-petco-navy bg-petco-navy px-3 py-2 text-sm font-medium text-white transition hover:bg-white hover:text-petco-navy focus:outline-none focus-visible:shadow-[0_0_0_3px_rgba(0,25,82,0.28)]">
-                        Account
-                    </summary>
-                    <div class="absolute right-3 mt-2 w-44 rounded-xl border border-slate-200 bg-white p-2 shadow-xl md:right-6" role="menu" aria-label="User account menu">
-                        <a href="#" class="block rounded-lg px-3 py-2 text-sm text-petco-navy hover:bg-slate-100" role="menuitem">Sign in</a>
-                        <a href="#" class="block rounded-lg px-3 py-2 text-sm text-petco-navy hover:bg-slate-100" role="menuitem">Orders</a>
-                        <a href="#" class="block rounded-lg px-3 py-2 text-sm text-petco-navy hover:bg-slate-100" role="menuitem">Rewards</a>
-                    </div>
-                </details>
+<div class="flex flex-wrap items-center gap-3 md:gap-4">
 
-                <div class="order-4 w-full md:order-3 md:w-auto" aria-label="Popular categories">
-                    <div class="no-scrollbar flex items-center gap-2 overflow-x-auto pb-1 md:pb-0">
-                        <a href="#" class="min-w-20 rounded-xl border border-white/75 bg-white px-4 py-2 text-center text-sm font-semibold text-petco-navy transition hover:bg-slate-100 focus:outline-none focus-visible:shadow-[0_0_0_3px_rgba(255,255,255,0.45)]">Cat</a>
-                        <a href="#" class="min-w-20 rounded-xl bg-petco-navy px-4 py-2 text-center text-sm font-semibold text-white transition hover:bg-white hover:text-petco-navy focus:outline-none focus-visible:shadow-[0_0_0_3px_rgba(0,25,82,0.35)]">Dog</a>
-                        <a href="#" class="min-w-20 rounded-xl border border-petco-navy/20 bg-petco-green px-4 py-2 text-center text-sm font-semibold text-petco-navy transition hover:brightness-95 focus:outline-none focus-visible:shadow-[0_0_0_3px_rgba(136,198,90,0.45)]">Sale</a>
-                    </div>
-                </div>
-            </div>
-        </nav>
-    </header>
+<!-- Logo -->
+<a href="index.html" class="flex items-center gap-2">
+    <img src="assets/petco_logo_2025.png" class="h-10">
+</a>
 
-    <main class="flex-1" aria-hidden="true"></main>
+<!-- Search -->
+<form class="w-full md:max-w-md md:ml-auto">
+    <input type="search" placeholder="Search food, toys, treats..."
+    class="w-full rounded-xl border px-3 py-2">
+</form>
 
-    <footer class="mt-4 bg-petco-blue text-white" aria-label="Footer">
-        <div class="mx-auto grid w-full max-w-7xl gap-6 px-4 py-7 md:grid-cols-3 md:px-6">
-            <section aria-labelledby="footer-categories">
-                <h2 id="footer-categories" class="inline-block rounded-md bg-petco-navy px-2 py-1 text-sm font-semibold uppercase tracking-wide text-white">Categories</h2>
-                <ul class="mt-4 space-y-2 text-sm">
-                    <li><a href="#" class="transition hover:text-petco-green">Cat</a></li>
-                    <li><a href="#" class="transition hover:text-petco-green">Dog</a></li>
-                    <li><a href="#" class="transition hover:text-petco-green">Reptile</a></li>
-                    <li><a href="#" class="transition hover:text-petco-green">Bird</a></li>
-                    <li><a href="#" class="transition hover:text-petco-green">Fish</a></li>
-                    <li><a href="#" class="transition hover:text-petco-green">Small Animals</a></li>
-                </ul>
-            </section>
+<!-- Account -->
+<details class="account-menu ml-auto">
+    <summary class="rounded-xl bg-petco-navy px-3 py-2 text-white cursor-pointer">
+        Account
+    </summary>
 
-            <section aria-labelledby="footer-legal">
-                <h2 id="footer-legal" class="inline-block rounded-md bg-petco-navy px-2 py-1 text-sm font-semibold uppercase tracking-wide text-white">Legal</h2>
-                <ul class="mt-4 space-y-2 text-sm">
-                    <li><a href="#" class="transition hover:text-petco-green">Terms and Conditions</a></li>
-                    <li><a href="#" class="transition hover:text-petco-green">Privacy Policy</a></li>
-                    <li><a href="#" class="transition hover:text-petco-green">About the Brand</a></li>
-                </ul>
-            </section>
+    <div class="absolute right-3 mt-2 w-44 bg-white rounded-xl shadow-xl p-2">
+        <a href="#" class="block px-3 py-2 hover:bg-slate-100">Sign in</a>
+        <a href="#" class="block px-3 py-2 hover:bg-slate-100">Orders</a>
+    </div>
+</details>
 
-            <section aria-labelledby="footer-contact">
-                <h2 id="footer-contact" class="inline-block rounded-md bg-petco-navy px-2 py-1 text-sm font-semibold uppercase tracking-wide text-white">Contact</h2>
-                <ul class="mt-4 space-y-2 text-sm">
-                    <li><a href="mailto:support@petco.com" class="transition hover:text-petco-green">support@petco.com</a></li>
-                    <li><a href="tel:+18007384267" class="transition hover:text-petco-green">1-800-PETCO-67</a></li>
-                    <li><a href="#" class="transition hover:text-petco-green">Store Locator</a></li>
-                </ul>
-            </section>
-        </div>
-    </footer>
+<!-- CART ICON -->
+<a href="cart.html" class="ml-2 relative bg-white border rounded-xl px-3 py-2 hover:bg-slate-100">
+
+    <svg class="h-5 w-5 text-petco-navy" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path d="M6 6h15l-1.5 9h-13z"/>
+        <circle cx="9" cy="20" r="1"/>
+        <circle cx="18" cy="20" r="1"/>
+    </svg>
+
+    <span class="absolute -top-1 -right-1 bg-petco-green text-xs px-1.5 rounded-full">
+        2
+    </span>
+</a>
+
+</div>
+</nav>
+</header>
+
+<!-- MAIN -->
+<main class="flex-1 px-4 py-8 md:px-6">
+
+<section>
+    <div class="max-w-7xl mx-auto">
+        <h1 class="text-2xl font-bold">Welcome to Petco</h1>
+        <p class="mt-2 text-slate-600">Your shopping experience starts here.</p>
+    </div>
+</section>
+
+</main>
+
 </body>
 </html>

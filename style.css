@@ -6,13 +6,13 @@
 	font-display: swap;
 }
 
-/* Custom styles */
 .navbar-shell {
 	background: rgb(0 157 220);
 	backdrop-filter: blur(8px);
 	box-shadow: 0 12px 30px rgba(0, 25, 82, 0.12);
 }
 
+/* Account menu */
 .account-menu {
 	position: relative;
 }
@@ -29,11 +29,12 @@
 	display: none;
 }
 
-.no-scrollbar {
-	-ms-overflow-style: none;
-	scrollbar-width: none;
+/* Cart items */
+.cart-item {
+	transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.no-scrollbar::-webkit-scrollbar {
-	display: none;
+.cart-item:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
 }
