@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Petco | Premium Salmon Bites for Dogs</title>
     <meta name="description" content="Explore Petco Premium Salmon Bites for Dogs with complete ingredients, pricing, and feeding details.">
+    <link rel="canonical" href="https://www.petco.com/product/premium-salmon-bites-for-dogs">
+    <meta property="og:type" content="product">
+    <meta property="og:title" content="Petco | Premium Salmon Bites for Dogs">
+    <meta property="og:description" content="High-protein salmon dog treats with omega-rich ingredients, pricing, and feeding details.">
+    <meta property="og:url" content="https://www.petco.com/product/premium-salmon-bites-for-dogs">
+    <meta property="og:image" content="https://placehold.co/900x700">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -28,33 +34,124 @@
         {
             "@context": "https://schema.org",
             "@type": "Product",
+            "@id": "https://www.petco.com/product/premium-salmon-bites-for-dogs#product",
             "name": "Premium Salmon Bites for Dogs",
+            "sku": "DOG-SALM-001",
+            "category": "Dog Treats",
             "brand": {
                 "@type": "Brand",
                 "name": "Petco"
             },
             "description": "High-protein salmon treats with omega-rich ingredients for healthy skin and coat.",
             "image": "https://placehold.co/900x700",
+            "url": "https://www.petco.com/product/premium-salmon-bites-for-dogs",
+            "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "4.0",
+                "reviewCount": "3",
+                "bestRating": "5",
+                "worstRating": "1"
+            },
+            "review": [
+                {
+                    "@type": "Review",
+                    "author": {
+                        "@type": "Person",
+                        "name": "charliepaws"
+                    },
+                    "reviewRating": {
+                        "@type": "Rating",
+                        "ratingValue": "5",
+                        "bestRating": "5",
+                        "worstRating": "1"
+                    },
+                    "reviewBody": "My dog gets excited every time he hears this bag open. Great ingredients and no stomach issues at all."
+                },
+                {
+                    "@type": "Review",
+                    "author": {
+                        "@type": "Person",
+                        "name": "miloandme"
+                    },
+                    "reviewRating": {
+                        "@type": "Rating",
+                        "ratingValue": "4",
+                        "bestRating": "5",
+                        "worstRating": "1"
+                    },
+                    "reviewBody": "Perfect size for training rewards and the salmon smell is not too strong. I would buy this again."
+                },
+                {
+                    "@type": "Review",
+                    "author": {
+                        "@type": "Person",
+                        "name": "beachdogmom"
+                    },
+                    "reviewRating": {
+                        "@type": "Rating",
+                        "ratingValue": "3",
+                        "bestRating": "5",
+                        "worstRating": "1"
+                    },
+                    "reviewBody": "Good quality overall, but my pup prefers softer treats. Still a solid option for active dogs."
+                }
+            ],
             "offers": {
                 "@type": "Offer",
+                "url": "https://www.petco.com/product/premium-salmon-bites-for-dogs",
                 "priceCurrency": "USD",
                 "price": "18.99",
+                "priceValidUntil": "2027-12-31",
+                "itemCondition": "https://schema.org/NewCondition",
                 "availability": "https://schema.org/InStock"
             }
         }
     </script>
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Home",
+                    "item": "https://www.petco.com/"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Dog",
+                    "item": "https://www.petco.com/shop/en/petcostore/category/dog"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 3,
+                    "name": "Premium Salmon Bites"
+                }
+            ]
+        }
+    </script>
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="font-petco flex min-h-screen flex-col bg-slate-100 text-petco-navy">
+<body class="font-petco flex min-h-screen flex-col bg-slate-100 text-petco-navy" aria-label="Petco Premium Salmon Bites product page">
     <header class="sticky top-0 z-50 px-3 pt-3 md:px-6">
         <nav class="navbar-shell mx-auto w-full max-w-7xl rounded-2xl border border-petco-navy/20 p-3 md:p-4" aria-label="Main navigation">
             <div class="flex flex-wrap items-center gap-3 md:gap-4">
-                <a href="#" class="order-1 inline-flex items-center gap-2 rounded-xl px-2 py-1 transition hover:bg-white/15" aria-label="Petco home">
+                <a href="index.html" class="order-1 inline-flex items-center gap-2 rounded-xl px-2 py-1 transition hover:bg-white/15" aria-label="Go to Petco homepage">
                     <img src="assets/petco_logo_2025.png" alt="Petco logo" class="h-10 w-auto object-contain" loading="eager">
                     <span class="hidden text-sm font-medium text-petco-navy sm:inline">Where the pets go.</span>
                 </a>
 
-                <form role="search" aria-label="Site search" class="order-3 w-full md:order-2 md:ml-auto md:max-w-md md:flex-1">
+                <button type="button" class="order-2 ml-auto inline-flex h-10 w-10 items-center justify-center rounded-xl border border-petco-navy/25 bg-white/90 text-petco-navy transition hover:bg-white focus:outline-none focus-visible:shadow-[0_0_0_3px_rgba(0,25,82,0.25)] md:hidden" aria-label="Open navigation menu" aria-controls="mobile-main-menu" aria-expanded="false" data-mobile-menu-button>
+                    <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                        <path d="M4 7h16"></path>
+                        <path d="M4 12h16"></path>
+                        <path d="M4 17h16"></path>
+                    </svg>
+                </button>
+
+                <form role="search" aria-label="Site search" class="order-4 w-full md:order-2 md:ml-auto md:max-w-md md:flex-1">
                     <label for="site-search" class="sr-only">Search products</label>
                     <div class="relative">
                         <svg class="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-petco-navy/50" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -65,7 +162,7 @@
                     </div>
                 </form>
 
-                <details class="account-menu order-2 ml-auto md:order-4 md:ml-0">
+                <details class="account-menu order-2 ml-auto hidden md:order-4 md:ml-0 md:block" aria-label="Account options">
                     <summary class="list-none rounded-xl border border-petco-navy bg-petco-navy px-3 py-2 text-sm font-medium text-white transition hover:bg-white hover:text-petco-navy focus:outline-none focus-visible:shadow-[0_0_0_3px_rgba(0,25,82,0.28)]">
                         Account
                     </summary>
@@ -76,32 +173,48 @@
                     </div>
                 </details>
 
-                <div class="order-4 w-full md:order-3 md:w-auto" aria-label="Popular categories">
+                <div class="order-4 hidden w-full md:order-3 md:block md:w-auto" aria-label="Popular categories">
                     <div class="no-scrollbar flex items-center gap-2 overflow-x-auto pb-1 md:pb-0">
                         <a href="#" class="min-w-20 rounded-xl border border-white/75 bg-white px-4 py-2 text-center text-sm font-semibold text-petco-navy transition hover:bg-slate-100 focus:outline-none focus-visible:shadow-[0_0_0_3px_rgba(255,255,255,0.45)]">Cat</a>
                         <a href="#" class="min-w-20 rounded-xl bg-petco-navy px-4 py-2 text-center text-sm font-semibold text-white transition hover:bg-white hover:text-petco-navy focus:outline-none focus-visible:shadow-[0_0_0_3px_rgba(0,25,82,0.35)]">Dog</a>
                         <a href="product.html" class="min-w-20 rounded-xl border border-petco-navy/20 bg-petco-green px-4 py-2 text-center text-sm font-semibold text-petco-navy transition hover:brightness-95 focus:outline-none focus-visible:shadow-[0_0_0_3px_rgba(136,198,90,0.45)]">Sale</a>
                     </div>
                 </div>
+
+                <div id="mobile-main-menu" class="order-5 hidden w-full rounded-xl border border-petco-navy/15 bg-white/95 p-3 shadow-lg md:hidden" data-mobile-menu-panel>
+                    <div class="grid gap-2" aria-label="Mobile navigation links">
+                        <a href="#" class="rounded-lg border border-petco-navy/10 px-3 py-2 text-sm font-semibold text-petco-navy transition hover:bg-slate-50">Cat</a>
+                        <a href="#" class="rounded-lg border border-petco-navy/10 bg-petco-navy px-3 py-2 text-sm font-semibold text-white transition hover:bg-petco-blue">Dog</a>
+                        <a href="product.html" class="rounded-lg border border-petco-navy/10 bg-petco-green px-3 py-2 text-sm font-semibold text-petco-navy transition hover:brightness-95">Sale</a>
+                    </div>
+                    <div class="mt-3 border-t border-petco-navy/10 pt-3">
+                        <p class="text-xs font-semibold uppercase tracking-wide text-petco-navy/70">Account</p>
+                        <div class="mt-2 grid gap-2">
+                            <a href="#" class="rounded-lg px-3 py-2 text-sm text-petco-navy transition hover:bg-slate-100">Sign in</a>
+                            <a href="#" class="rounded-lg px-3 py-2 text-sm text-petco-navy transition hover:bg-slate-100">Orders</a>
+                            <a href="#" class="rounded-lg px-3 py-2 text-sm text-petco-navy transition hover:bg-slate-100">Rewards</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </nav>
     </header>
 
-    <main class="mx-auto w-full max-w-7xl flex-1 px-4 py-6 md:px-6 md:py-10">
+    <main class="mx-auto w-full max-w-7xl flex-1 px-4 py-6 md:px-6 md:py-10" aria-label="Product information">
         <nav aria-label="Breadcrumb" class="mb-6">
             <ol class="flex flex-wrap items-center gap-2 text-sm text-petco-navy/70">
                 <li><a href="index.html" class="transition hover:text-petco-blue">Home</a></li>
                 <li aria-hidden="true">/</li>
                 <li><a href="#" class="transition hover:text-petco-blue">Dog</a></li>
                 <li aria-hidden="true">/</li>
-                <li class="font-semibold text-petco-navy">Premium Salmon Bites</li>
+                <li class="font-semibold text-petco-navy" aria-current="page">Premium Salmon Bites</li>
             </ol>
         </nav>
 
         <article class="mx-auto w-full max-w-7xl">
-            <div class="grid items-center gap-4 md:grid-cols-[60%_40%] md:gap-6">
+            <div class="grid items-center gap-4 sm:gap-5 md:grid-cols-[60%_40%] md:gap-6">
                 <section aria-label="Product image" class="p-2 md:p-0">
-                    <img src="https://placehold.co/900x700" alt="Premium Salmon Bites for Dogs packaging" class="h-full w-full rounded-[15%] object-cover" loading="lazy">
+                    <img src="assets/Salomn-premium-bite.jpg" alt="Premium Salmon Bites for Dogs packaging" class="h-full w-full rounded-[15%] object-cover" loading="lazy">
                 </section>
 
                 <section aria-labelledby="product-title" class="flex h-full flex-col rounded-3xl border border-petco-navy/10 bg-white p-6 shadow-[0_16px_40px_rgba(0,25,82,0.1)] md:p-8 lg:p-10">
@@ -112,7 +225,7 @@
                         <span class="text-sm uppercase tracking-wide text-petco-navy/65">Ref: DOG-SALM-001</span>
                     </h3>
 
-                    <h1 class="mt-6 text-4xl font-semibold text-petco-navy" aria-label="Product price">$18.99</h1>
+                    <p class="mt-6 text-4xl font-semibold text-petco-navy" aria-label="Product price">$18.99</p>
 
                     <div class="mt-auto flex flex-wrap items-center gap-3 pt-8">
                         <label for="product-quantity" class="sr-only">Select quantity</label>
@@ -124,7 +237,7 @@
                             <option value="5">Qty: 5</option>
                         </select>
 
-                        <button type="button" aria-label="Add to cart" class="inline-flex items-center justify-center rounded-xl bg-petco-navy px-5 py-3 text-white transition hover:bg-petco-blue focus:outline-none focus-visible:shadow-[0_0_0_3px_rgba(0,157,220,0.35)]">
+                        <button type="button" aria-label="Add Premium Salmon Bites to cart" class="inline-flex items-center justify-center rounded-xl bg-petco-navy px-5 py-3 text-white transition hover:bg-petco-blue focus:outline-none focus-visible:shadow-[0_0_0_3px_rgba(0,157,220,0.35)]">
                             <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                                 <circle cx="9" cy="20" r="1.5"></circle>
                                 <circle cx="18" cy="20" r="1.5"></circle>
@@ -183,49 +296,46 @@
             <section aria-labelledby="similar-products-title" class="mt-10">
                 <h2 id="similar-products-title" class="text-2xl font-semibold leading-tight text-petco-navy md:text-3xl">Similar Products</h2>
 
-                <div class="similar-products-carousel mt-6" data-carousel>
+                <div class="similar-products-carousel mt-6" data-carousel aria-label="Similar products carousel">
                     <div class="similar-products-viewport" data-carousel-viewport>
                         <div class="similar-products-track">
-                            <article class="similar-product-card" aria-label="Ocean Whitefish Crunch product card">
-                                <img src="https://placehold.co/520x380" alt="Ocean Whitefish Crunch for dogs" class="similar-product-image" loading="lazy">
+                            <article class="similar-product-card" aria-label="Ocean Whitefish Crunch product card" role="group">
+                                <img src="assets/Ocean-white-fish.jpg.avif" alt="Ocean Whitefish Crunch for dogs" class="similar-product-image" loading="lazy">
                                 <h2 class="similar-product-name">Ocean Whitefish Crunch</h2>
                                 <h3 class="similar-product-rating" aria-label="4 out of 5 stars">★★★★<span aria-hidden="true">☆</span></h3>
                             </article>
 
-                            <article class="similar-product-card" aria-label="Turkey Tender Training Bites product card">
-                                <img src="https://placehold.co/520x380" alt="Turkey Tender Training Bites for dogs" class="similar-product-image" loading="lazy">
+                            <article class="similar-product-card" aria-label="Turkey Tender Training Bites product card" role="group">
+                                <img src="assets/turkey-training-bites.jpg.webp" alt="Turkey Tender Training Bites for dogs" class="similar-product-image" loading="lazy">
                                 <h2 class="similar-product-name">Turkey Tender Training Bites</h2>
                                 <h3 class="similar-product-rating" aria-label="5 out of 5 stars">★★★★★</h3>
                             </article>
 
-                            <article class="similar-product-card" aria-label="Lamb and Brown Rice Minis product card">
-                                <img src="https://placehold.co/520x380" alt="Lamb and Brown Rice Minis for dogs" class="similar-product-image" loading="lazy">
+                            <article class="similar-product-card" aria-label="Lamb and Brown Rice Minis product card" role="group">
+                                <img src="assets/lamb-brown-rice.jpeg.webp" alt="Lamb and Brown Rice Minis for dogs" class="similar-product-image" loading="lazy">
                                 <h2 class="similar-product-name">Lamb and Brown Rice Minis</h2>
                                 <h3 class="similar-product-rating" aria-label="4 out of 5 stars">★★★★<span aria-hidden="true">☆</span></h3>
                             </article>
 
-                            <article class="similar-product-card" aria-label="Chicken and Pumpkin Rewards product card">
-                                <img src="https://placehold.co/520x380" alt="Chicken and Pumpkin Rewards for dogs" class="similar-product-image" loading="lazy">
+                            <article class="similar-product-card" aria-label="Chicken and Pumpkin Rewards product card" role="group">
+                                <img src="assets/Chicke-pumpkin-twist.jpeg.webp" alt="Chicken and Pumpkin Rewards for dogs" class="similar-product-image" loading="lazy">
                                 <h2 class="similar-product-name">Chicken and Pumpkin Rewards</h2>
                                 <h3 class="similar-product-rating" aria-label="3 out of 5 stars">★★★<span aria-hidden="true">☆☆</span></h3>
                             </article>
 
-                            <article class="similar-product-card" aria-label="Beef Protein Jerky Strips product card">
-                                <img src="https://placehold.co/520x380" alt="Beef Protein Jerky Strips for dogs" class="similar-product-image" loading="lazy">
+                            <article class="similar-product-card" aria-label="Beef Protein Jerky Strips product card" role="group">
+                                <img src="assets/beef-jerky-strips.jpg.webp" alt="Beef Protein Jerky Strips for dogs" class="similar-product-image" loading="lazy">
                                 <h2 class="similar-product-name">Beef Protein Jerky Strips</h2>
                                 <h3 class="similar-product-rating" aria-label="5 out of 5 stars">★★★★★</h3>
                             </article>
 
-                            <article class="similar-product-card" aria-label="Cod and Sweet Potato Bites product card">
-                                <img src="https://placehold.co/520x380" alt="Cod and Sweet Potato Bites for dogs" class="similar-product-image" loading="lazy">
+                            <article class="similar-product-card" aria-label="Cod and Sweet Potato Bites product card" role="group">
+                                <img src="assets/cod-sweet-potato.jpeg.webp" alt="Cod and Sweet Potato Bites for dogs" class="similar-product-image" loading="lazy">
                                 <h2 class="similar-product-name">Cod and Sweet Potato Bites</h2>
                                 <h3 class="similar-product-rating" aria-label="4 out of 5 stars">★★★★<span aria-hidden="true">☆</span></h3>
                             </article>
                         </div>
                     </div>
-
-                    <div class="carousel-hover-zone carousel-hover-zone-left" aria-hidden="true" data-carousel-direction="prev"></div>
-                    <div class="carousel-hover-zone carousel-hover-zone-right" aria-hidden="true" data-carousel-direction="next"></div>
                 </div>
             </section>
 
@@ -281,7 +391,7 @@
 
                     <section aria-labelledby="overall-rating-title" class="rounded-2xl border border-petco-navy/10 bg-slate-50 p-5 md:p-6">
                         <div class="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
-                            <h1 id="overall-rating-title" class="text-4xl font-semibold text-petco-navy">★★★★☆ 4.0</h1>
+                            <p id="overall-rating-title" class="text-4xl font-semibold text-petco-navy" aria-label="Overall rating 4 out of 5 stars">★★★★☆ 4.0</p>
 
                             <form aria-label="Rate this product" class="w-full lg:w-auto">
                                 <fieldset>
@@ -336,20 +446,20 @@
                 <section aria-labelledby="user-reviews-title" class="mt-8">
                     <h2 id="user-reviews-title" class="text-2xl font-semibold leading-tight text-petco-navy">What Customers Are Saying</h2>
 
-                    <article class="mt-6 rounded-2xl border border-petco-navy/10 bg-white p-5" style="margin-bottom: 3%;">
-                        <h2 class="text-xl font-semibold text-petco-navy">★★★★★</h2>
+                    <article class="mt-6 rounded-2xl border border-petco-navy/10 bg-white p-5" style="margin-bottom: 3%;" aria-label="5 star review by charliepaws">
+                        <p class="text-xl font-semibold text-petco-navy" aria-label="5 out of 5 stars">★★★★★</p>
                         <h3 class="mt-3 text-base leading-relaxed text-petco-navy/90">"My dog gets excited every time he hears this bag open. Great ingredients and no stomach issues at all."</h3>
                         <h3 class="mt-4 text-sm font-bold uppercase tracking-wide text-petco-navy">@charliepaws</h3>
                     </article>
 
-                    <article class="rounded-2xl border border-petco-navy/10 bg-white p-5" style="margin-bottom: 3%;">
-                        <h2 class="text-xl font-semibold text-petco-navy">★★★★☆</h2>
+                    <article class="rounded-2xl border border-petco-navy/10 bg-white p-5" style="margin-bottom: 3%;" aria-label="4 star review by miloandme">
+                        <p class="text-xl font-semibold text-petco-navy" aria-label="4 out of 5 stars">★★★★☆</p>
                         <h3 class="mt-3 text-base leading-relaxed text-petco-navy/90">"Perfect size for training rewards and the salmon smell is not too strong. I would buy this again."</h3>
                         <h3 class="mt-4 text-sm font-bold uppercase tracking-wide text-petco-navy">@miloandme</h3>
                     </article>
 
-                    <article class="rounded-2xl border border-petco-navy/10 bg-white p-5">
-                        <h2 class="text-xl font-semibold text-petco-navy">★★★☆☆</h2>
+                    <article class="rounded-2xl border border-petco-navy/10 bg-white p-5" aria-label="3 star review by beachdogmom">
+                        <p class="text-xl font-semibold text-petco-navy" aria-label="3 out of 5 stars">★★★☆☆</p>
                         <h3 class="mt-3 text-base leading-relaxed text-petco-navy/90">"Good quality overall, but my pup prefers softer treats. Still a solid option for active dogs."</h3>
                         <h3 class="mt-4 text-sm font-bold uppercase tracking-wide text-petco-navy">@beachdogmom</h3>
                     </article>
@@ -359,56 +469,29 @@
     </main>
 
     <script>
-        document.querySelectorAll('[data-carousel]').forEach((carousel) => {
-            const viewport = carousel.querySelector('[data-carousel-viewport]');
-            const leftZone = carousel.querySelector('[data-carousel-direction="prev"]');
-            const rightZone = carousel.querySelector('[data-carousel-direction="next"]');
+        const mobileMenuButton = document.querySelector('[data-mobile-menu-button]');
+        const mobileMenuPanel = document.querySelector('[data-mobile-menu-panel]');
 
-            if (!viewport || !leftZone || !rightZone) {
-                return;
-            }
-
-            let direction = 0;
-            let velocity = 0;
-            const maxSpeed = 6.3504;
-            const smoothing = 0.08;
-
-            const setDirection = (newDirection) => {
-                direction = newDirection;
-                carousel.classList.toggle('carousel-moving-left', newDirection < 0);
-                carousel.classList.toggle('carousel-moving-right', newDirection > 0);
+        if (mobileMenuButton && mobileMenuPanel) {
+            const closeMobileMenu = () => {
+                mobileMenuPanel.classList.add('hidden');
+                mobileMenuButton.setAttribute('aria-expanded', 'false');
+                mobileMenuButton.setAttribute('aria-label', 'Open navigation menu');
             };
 
-            const stopMovement = () => {
-                direction = 0;
-                carousel.classList.remove('carousel-moving-left', 'carousel-moving-right');
-            };
+            mobileMenuButton.addEventListener('click', () => {
+                const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
+                mobileMenuButton.setAttribute('aria-expanded', String(!isExpanded));
+                mobileMenuButton.setAttribute('aria-label', isExpanded ? 'Open navigation menu' : 'Close navigation menu');
+                mobileMenuPanel.classList.toggle('hidden', isExpanded);
+            });
 
-            leftZone.addEventListener('mouseenter', () => setDirection(-1));
-            rightZone.addEventListener('mouseenter', () => setDirection(1));
-            leftZone.addEventListener('mouseleave', stopMovement);
-            rightZone.addEventListener('mouseleave', stopMovement);
-            carousel.addEventListener('mouseleave', stopMovement);
-
-            const animate = () => {
-                const targetVelocity = direction * maxSpeed;
-                velocity += (targetVelocity - velocity) * smoothing;
-
-                if (Math.abs(velocity) < 0.01) {
-                    velocity = 0;
+            window.addEventListener('resize', () => {
+                if (window.innerWidth >= 768) {
+                    closeMobileMenu();
                 }
-
-                const maxScroll = viewport.scrollWidth - viewport.clientWidth;
-                if (maxScroll > 0 && velocity !== 0) {
-                    const next = Math.min(maxScroll, Math.max(0, viewport.scrollLeft + velocity));
-                    viewport.scrollLeft = next;
-                }
-
-                requestAnimationFrame(animate);
-            };
-
-            requestAnimationFrame(animate);
-        });
+            });
+        }
 
         document.querySelectorAll('[data-star-rating]').forEach((ratingGroup) => {
             const starButtons = Array.from(ratingGroup.querySelectorAll('[data-star-button]'));
