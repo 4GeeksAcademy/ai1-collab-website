@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Petco | Payment Details</title>
+    <meta name="description" content="Complete your Petco checkout by entering your required billing and address details.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: "#00205B",
+                        brandLight: "#123E8A",
+                        brandSoft: "#E8EEF8",
+                        petco: {
+                            navy: 'rgb(0 25 82)',
+                            blue: 'rgb(0 157 220)',
+                            green: 'rgb(136 198 90)'
+                        }
+                    },
+                    boxShadow: {
+                        soft: "0 20px 45px rgba(0, 32, 91, 0.12)"
+                    }
+                }
+            }
+        };
+    </script>
+    <style>
+        :root {
+            --brand: #00205B;
+            --brand-light: #123E8A;
+            --surface: #F7FAFF;
+        }
+
+        body {
+            font-family: "DM Sans", sans-serif;
+            position: relative;
+            background:
+                radial-gradient(circle at 90% 5%, rgba(0, 32, 91, 0.14) 0%, rgba(0, 32, 91, 0) 35%),
+                radial-gradient(circle at 8% 88%, rgba(0, 32, 91, 0.12) 0%, rgba(0, 32, 91, 0) 36%),
+                var(--surface);
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background: #ffffff;
+            z-index: 9999;
+            pointer-events: none;
+            animation: fade-screen 1s ease-out forwards;
+        }
+
+        body > * {
+            opacity: 0;
+            animation: fade-content 0.85s ease-out 0.1s forwards;
+        }
+
+        @keyframes fade-screen {
+            0% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+
+        @keyframes fade-content {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            body::before,
+            body > * {
+                animation: none;
+            }
+
+            body::before {
+                opacity: 0;
+                visibility: hidden;
+            }
+
+            body > * {
+                opacity: 1;
+            }
+        }
+    </style>
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "Petco",
+            "slogan": "Where the pets go.",
+            "url": "/",
+            "logo": "assets/petco_logo_2025.png"
+        }
+    </script>
+</head>
+<body>
+    <header class="sticky top-0 z-40 border-b border-brand/10 bg-white/95 backdrop-blur-sm">
+        <section class="mx-auto flex w-full max-w-7xl flex-col gap-4 px-4 py-4 sm:px-6 lg:px-8 xl:flex-row xl:items-center xl:gap-6" aria-label="Header content">
+            <figure class="flex items-center gap-3">
+                <img src="Images/NEW Petco Logo 2025.png" alt="Petco logo placeholder" class="h-20 w-auto object-contain">
+            </figure>
+            <form class="w-full xl:min-w-0 xl:flex-1" role="search" aria-label="Search products">
+                <label for="site-search" class="sr-only">Search products</label>
+                <div class="flex items-center rounded-full border border-brand/30 bg-brandSoft/70 p-1 shadow-soft">
+                    <input id="site-search" name="q" type="search" placeholder="Search food, toys, beds..." class="w-full rounded-full bg-transparent px-4 py-2 text-sm font-medium text-brand placeholder:text-brand/70 focus:outline-none">
+                    <button type="submit" class="rounded-full bg-brand px-4 py-2 text-sm font-semibold text-white transition hover:bg-brandLight">Search</button>
+                </div>
+            </form>
+            <nav aria-label="Main navigation" class="w-full xl:w-auto xl:flex-shrink-0">
+                <ul class="flex flex-wrap items-center justify-start gap-2 sm:gap-3 xl:flex-nowrap xl:justify-end">
+                    <li><button type="button" class="rounded-full bg-brand px-4 py-2 text-sm font-semibold text-white">Home</button></li>
+                    <li><button type="button" class="rounded-full border border-brand px-4 py-2 text-sm font-semibold text-brand hover:bg-brand hover:text-white">Dogs</button></li>
+                    <li><button type="button" class="rounded-full border border-brand px-4 py-2 text-sm font-semibold text-brand hover:bg-brand hover:text-white">Cats</button></li>
+                    <li><button type="button" class="rounded-full border border-brand px-4 py-2 text-sm font-semibold text-brand hover:bg-brand hover:text-white">Fish</button></li>
+                    <li><button type="button" class="rounded-full border border-brand px-4 py-2 text-sm font-semibold text-brand hover:bg-brand hover:text-white">Other</button></li>
+                    <li class="relative group/account">
+                        <button type="button" aria-label="Open account menu" class="rounded-full border border-brand p-1 hover:bg-brandSoft">
+                            <img src="Images/person icon.jpeg" alt="Account icon" class="h-11 w-11 rounded-full object-cover">
+                        </button>
+                        <ul class="invisible pointer-events-none absolute right-0 top-full z-20 mt-2 w-40 rounded-2xl border border-brand/15 bg-white p-2 opacity-0 shadow-soft transition group-hover/account:visible group-hover/account:pointer-events-auto group-hover/account:opacity-100 group-focus-within/account:visible group-focus-within/account:pointer-events-auto group-focus-within/account:opacity-100">
+                            <li><button type="button" class="block w-full rounded-xl px-3 py-2 text-left text-sm font-medium text-brand hover:bg-brandSoft">Cart</button></li>
+                            <li><button type="button" class="block w-full rounded-xl px-3 py-2 text-left text-sm font-medium text-brand hover:bg-brandSoft">Orders</button></li>
+                            <li><button type="button" class="block w-full rounded-xl px-3 py-2 text-left text-sm font-medium text-brand hover:bg-brandSoft">Rewards</button></li>
+                            <li><button type="button" class="block w-full rounded-xl px-3 py-2 text-left text-sm font-medium text-brand hover:bg-brandSoft">Sign In</button></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </section>
+    </header>
+
+    <main class="mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+        <section class="mx-auto w-full max-w-5xl rounded-3xl border border-brand/10 bg-white p-6 shadow-soft md:p-10" aria-labelledby="payment-form-title">
+            <div class="mb-6 border-b border-slate-200 pb-4">
+                <p class="text-xs font-semibold uppercase tracking-[0.16em] text-brandLight">Checkout</p>
+                <h1 id="payment-form-title" class="mt-1 text-2xl font-semibold text-brand md:text-3xl">Payment Options And Billing</h1>
+                <p class="mt-2 text-sm text-brand/75">Select a payment option and complete all billing fields to submit.</p>
+            </div>
+
+            <form action="#" method="post" class="space-y-5" aria-label="Payment form" novalidate>
+                <div id="form-error-summary" class="hidden rounded-xl border border-red-500 bg-red-50 px-4 py-3 text-sm font-medium text-red-700" role="alert" aria-live="polite"></div>
+
+                <section id="payment-options" data-required-section="true" class="rounded-2xl border border-brand/25 bg-brandSoft/50 p-4" aria-labelledby="payment-options-title">
+                    <h2 id="payment-options-title" class="text-base font-semibold">Choose Payment Option <span aria-hidden="true" class="text-red-500">*</span></h2>
+                    <p class="mt-1 text-sm text-brand/75">This selection is required before continuing.</p>
+                    <fieldset class="mt-3 grid gap-2 text-sm">
+                        <label class="flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-3 py-2">
+                            <input type="radio" name="payment_method" value="credit_card" required>
+                            Credit or Debit Card
+                        </label>
+                        <label class="flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-3 py-2">
+                            <input type="radio" name="payment_method" value="paypal" required>
+                            PayPal
+                        </label>
+                        <label class="flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-3 py-2">
+                            <input type="radio" name="payment_method" value="apple_google" required>
+                            Apple Pay or Google Pay
+                        </label>
+                    </fieldset>
+                </section>
+
+                <section id="card-details" data-required-section="true" class="hidden rounded-2xl border border-slate-200 bg-slate-50 p-4" aria-labelledby="card-details-title">
+                    <h2 id="card-details-title" class="text-base font-semibold">Card Information <span aria-hidden="true" class="text-red-500">*</span></h2>
+                    <p class="mt-1 text-sm text-brand/75">Enter your card details to continue with credit or debit card payment.</p>
+                    <div class="mt-3 grid gap-4 md:grid-cols-2">
+                        <div class="md:col-span-2">
+                            <label for="card-name" class="mb-1 block text-sm font-medium">Name On Card <span aria-hidden="true" class="text-red-500">*</span></label>
+                            <input id="card-name" name="card_name" type="text" autocomplete="cc-name" pattern="[A-Za-z ]+" data-card-field="true" data-letters-only="true" class="w-full rounded-xl border border-slate-300 bg-white px-3 py-2.5 text-sm outline-none transition focus:border-petco-blue focus:shadow-[0_0_0_3px_rgba(0,157,220,0.2)]">
+                        </div>
+                        <div class="md:col-span-2">
+                            <label for="card-number" class="mb-1 block text-sm font-medium">Card Number <span aria-hidden="true" class="text-red-500">*</span></label>
+                            <input id="card-number" name="card_number" type="text" inputmode="numeric" autocomplete="cc-number" pattern="[0-9]{13,19}" maxlength="19" data-card-field="true" data-digits-only="true" class="w-full rounded-xl border border-slate-300 bg-white px-3 py-2.5 text-sm outline-none transition focus:border-petco-blue focus:shadow-[0_0_0_3px_rgba(0,157,220,0.2)]">
+                        </div>
+                        <div>
+                            <label for="card-expiry" class="mb-1 block text-sm font-medium">Expiration Date (MM/YY) <span aria-hidden="true" class="text-red-500">*</span></label>
+                            <input id="card-expiry" name="card_expiry" type="text" inputmode="numeric" autocomplete="cc-exp" pattern="(0[1-9]|1[0-2])/[0-9]{2}" maxlength="5" placeholder="MM/YY" data-card-field="true" data-expiry-field="true" class="w-full rounded-xl border border-slate-300 bg-white px-3 py-2.5 text-sm outline-none transition focus:border-petco-blue focus:shadow-[0_0_0_3px_rgba(0,157,220,0.2)]">
+                            <p id="card-expiry-error" class="mt-1 hidden text-xs font-medium text-red-600"></p>
+                        </div>
+                        <div>
+                            <label for="card-cvv" class="mb-1 block text-sm font-medium">Security Code (CVV) <span aria-hidden="true" class="text-red-500">*</span></label>
+                            <input id="card-cvv" name="card_cvv" type="text" inputmode="numeric" autocomplete="cc-csc" pattern="[0-9]{3}" maxlength="3" data-card-field="true" data-digits-only="true" class="w-full rounded-xl border border-slate-300 bg-white px-3 py-2.5 text-sm outline-none transition focus:border-petco-blue focus:shadow-[0_0_0_3px_rgba(0,157,220,0.2)]">
+                        </div>
+                    </div>
+                </section>
+
+                <section id="paypal-redirect" class="hidden rounded-2xl border border-petco-blue/25 bg-white p-4" aria-labelledby="paypal-redirect-title">
+                    <h2 id="paypal-redirect-title" class="text-base font-semibold">Pay With PayPal</h2>
+                    <p class="mt-1 text-sm text-brand/75">Sign in with paypal to complete your payment.</p>
+                    <a href="https://www.paypal.com/signin" target="_blank" rel="noopener noreferrer" class="mt-3 inline-flex items-center justify-center rounded-xl bg-[#0070ba] px-4 py-2.5 text-sm font-semibold text-white transition hover:brightness-95 focus:outline-none focus-visible:shadow-[0_0_0_3px_rgba(0,112,186,0.28)]">
+                        Continue To PayPal
+                    </a>
+                </section>
+
+                <section id="wallet-options" class="hidden rounded-2xl border border-slate-200 bg-white p-4" aria-labelledby="wallet-options-title">
+                    <h2 id="wallet-options-title" class="text-base font-semibold">Digital Wallet Options</h2>
+                    <p class="mt-1 text-sm text-brand/75">Choose Apple Pay or Google Pay to continue.</p>
+                    <div class="mt-3 flex flex-wrap gap-3">
+                        <a href="https://support.apple.com/apple-pay" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center rounded-xl bg-black px-4 py-2.5 text-sm font-semibold text-white transition hover:opacity-90 focus:outline-none focus-visible:shadow-[0_0_0_3px_rgba(0,0,0,0.25)]">
+                            Continue With Apple Pay
+                        </a>
+                        <a href="https://pay.google.com/about/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center rounded-xl bg-[#4285f4] px-4 py-2.5 text-sm font-semibold text-white transition hover:brightness-95 focus:outline-none focus-visible:shadow-[0_0_0_3px_rgba(66,133,244,0.28)]">
+                            Continue With Google Pay
+                        </a>
+                    </div>
+                </section>
+
+                <section data-required-section="true" class="rounded-2xl border border-slate-200 bg-slate-50/50 p-5 md:p-6">
+                <h2 class="text-lg font-semibold">Billing Details <span aria-hidden="true" class="text-red-500">*</span></h2>
+                <div class="mt-3 grid gap-5 md:grid-cols-2">
+                    <div>
+                        <label for="first-name" class="mb-1 block text-sm font-medium">First Name <span aria-hidden="true" class="text-red-500">*</span></label>
+                        <input id="first-name" name="first_name" type="text" autocomplete="given-name" required pattern="[A-Za-z .'-]+" data-no-digits="true" class="w-full rounded-xl border border-slate-300 bg-white px-3 py-2.5 text-sm outline-none transition focus:border-petco-blue focus:shadow-[0_0_0_3px_rgba(0,157,220,0.2)]">
+                    </div>
+                    <div>
+                        <label for="last-name" class="mb-1 block text-sm font-medium">Last Name <span aria-hidden="true" class="text-red-500">*</span></label>
+                        <input id="last-name" name="last_name" type="text" autocomplete="family-name" required pattern="[A-Za-z .'-]+" data-no-digits="true" class="w-full rounded-xl border border-slate-300 bg-white px-3 py-2.5 text-sm outline-none transition focus:border-petco-blue focus:shadow-[0_0_0_3px_rgba(0,157,220,0.2)]">
+                    </div>
+                </div>
+
+                <div class="mt-2 grid gap-4 sm:grid-cols-[10rem_minmax(0,1fr)]">
+                    <div>
+                        <label for="country-code" class="mb-1 block text-sm font-medium">Country Code <span aria-hidden="true" class="text-red-500">*</span></label>
+                        <select id="country-code" name="country_code" required class="w-full rounded-xl border border-slate-300 bg-white px-3 py-2.5 text-sm outline-none transition focus:border-petco-blue focus:shadow-[0_0_0_3px_rgba(0,157,220,0.2)]">
+                            <option value="" selected disabled>Code</option>
+                            <option value="+1">+1 (US/CA)</option>
+                            <option value="+44">+44 (UK)</option>
+                            <option value="+52">+52 (MX)</option>
+                            <option value="+61">+61 (AU)</option>
+                            <option value="+81">+81 (JP)</option>
+                            <option value="+91">+91 (IN)</option>
+                            <option value="+34">+34 (ES)</option>
+                            <option value="+33">+33 (FR)</option>
+                            <option value="+49">+49 (DE)</option>
+                            <option value="+39">+39 (IT)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="phone" class="mb-1 block text-sm font-medium">Phone Number <span aria-hidden="true" class="text-red-500">*</span></label>
+                        <input id="phone" name="phone" type="tel" autocomplete="tel-local" inputmode="numeric" required pattern="[0-9]{10}" minlength="10" maxlength="10" data-digits-only="true" class="w-full rounded-xl border border-slate-300 bg-white px-3 py-2.5 text-sm outline-none transition focus:border-petco-blue focus:shadow-[0_0_0_3px_rgba(0,157,220,0.2)]">
+                    </div>
+                </div>
+
+                <div class="mt-1 grid gap-5 md:grid-cols-3">
+                    <div class="md:col-span-2">
+                        <label for="address-line-1" class="mb-1 block text-sm font-medium">Billing Address <span aria-hidden="true" class="text-red-500">*</span></label>
+                        <input id="address-line-1" name="address_line_1" type="text" autocomplete="address-line1" required class="w-full rounded-xl border border-slate-300 bg-white px-3 py-2.5 text-sm outline-none transition focus:border-petco-blue focus:shadow-[0_0_0_3px_rgba(0,157,220,0.2)]">
+                    </div>
+                    <div>
+                        <label for="address-type" class="mb-1 block text-sm font-medium">Address Type <span aria-hidden="true" class="text-red-500">*</span></label>
+                        <select id="address-type" name="address_type" required class="w-full rounded-xl border border-slate-300 bg-white px-3 py-2.5 text-sm outline-none transition focus:border-petco-blue focus:shadow-[0_0_0_3px_rgba(0,157,220,0.2)]">
+                            <option value="" selected disabled>Select one</option>
+                            <option value="apartment">Apartment</option>
+                            <option value="business">Business</option>
+                            <option value="house">House</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="mt-1 grid gap-5 md:grid-cols-3">
+                    <div class="md:col-span-1">
+                        <label for="city" class="mb-1 block text-sm font-medium">City <span aria-hidden="true" class="text-red-500">*</span></label>
+                        <input id="city" name="city" type="text" autocomplete="address-level2" required pattern="[A-Za-z .'-]+" data-no-digits="true" class="w-full rounded-xl border border-slate-300 bg-white px-3 py-2.5 text-sm outline-none transition focus:border-petco-blue focus:shadow-[0_0_0_3px_rgba(0,157,220,0.2)]">
+                    </div>
+                    <div>
+                        <label for="state" class="mb-1 block text-sm font-medium">State <span aria-hidden="true" class="text-red-500">*</span></label>
+                        <select id="state" name="state" autocomplete="address-level1" required class="w-full rounded-xl border border-slate-300 bg-white px-3 py-2.5 text-sm outline-none transition focus:border-petco-blue focus:shadow-[0_0_0_3px_rgba(0,157,220,0.2)]">
+                            <option value="" selected disabled>Select a state</option>
+                            <option value="AL">Alabama</option>
+                            <option value="AK">Alaska</option>
+                            <option value="AZ">Arizona</option>
+                            <option value="AR">Arkansas</option>
+                            <option value="CA">California</option>
+                            <option value="CO">Colorado</option>
+                            <option value="CT">Connecticut</option>
+                            <option value="DE">Delaware</option>
+                            <option value="FL">Florida</option>
+                            <option value="GA">Georgia</option>
+                            <option value="HI">Hawaii</option>
+                            <option value="ID">Idaho</option>
+                            <option value="IL">Illinois</option>
+                            <option value="IN">Indiana</option>
+                            <option value="IA">Iowa</option>
+                            <option value="KS">Kansas</option>
+                            <option value="KY">Kentucky</option>
+                            <option value="LA">Louisiana</option>
+                            <option value="ME">Maine</option>
+                            <option value="MD">Maryland</option>
+                            <option value="MA">Massachusetts</option>
+                            <option value="MI">Michigan</option>
+                            <option value="MN">Minnesota</option>
+                            <option value="MS">Mississippi</option>
+                            <option value="MO">Missouri</option>
+                            <option value="MT">Montana</option>
+                            <option value="NE">Nebraska</option>
+                            <option value="NV">Nevada</option>
+                            <option value="NH">New Hampshire</option>
+                            <option value="NJ">New Jersey</option>
+                            <option value="NM">New Mexico</option>
+                            <option value="NY">New York</option>
+                            <option value="NC">North Carolina</option>
+                            <option value="ND">North Dakota</option>
+                            <option value="OH">Ohio</option>
+                            <option value="OK">Oklahoma</option>
+                            <option value="OR">Oregon</option>
+                            <option value="PA">Pennsylvania</option>
+                            <option value="RI">Rhode Island</option>
+                            <option value="SC">South Carolina</option>
+                            <option value="SD">South Dakota</option>
+                            <option value="TN">Tennessee</option>
+                            <option value="TX">Texas</option>
+                            <option value="UT">Utah</option>
+                            <option value="VT">Vermont</option>
+                            <option value="VA">Virginia</option>
+                            <option value="WA">Washington</option>
+                            <option value="WV">West Virginia</option>
+                            <option value="WI">Wisconsin</option>
+                            <option value="WY">Wyoming</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="zip" class="mb-1 block text-sm font-medium">ZIP Code <span aria-hidden="true" class="text-red-500">*</span></label>
+                        <input id="zip" name="zip" type="text" inputmode="numeric" autocomplete="postal-code" required pattern="[0-9]{5}(-[0-9]{4})?" class="w-full rounded-xl border border-slate-300 bg-white px-3 py-2.5 text-sm outline-none transition focus:border-petco-blue focus:shadow-[0_0_0_3px_rgba(0,157,220,0.2)]">
+                    </div>
+                </div>
+
+                </section>
+
+                <button type="submit" class="inline-flex w-full items-center justify-center rounded-full bg-brand px-5 py-3 text-sm font-semibold text-white transition hover:bg-brandLight focus:outline-none focus-visible:shadow-[0_0_0_3px_rgba(0,32,91,0.28)] md:w-auto">
+                    Submit Payment
+                </button>
+            </form>
+        </section>
+    </main>
+
+    <footer class="border-t border-brand/15 bg-white">
+        <section class="mx-auto grid w-full max-w-7xl gap-10 px-4 py-10 sm:px-6 lg:grid-cols-[1fr_1fr_1fr_auto] lg:px-8" aria-label="Footer actions and links">
+            <nav class="relative w-fit group/help" aria-label="Help links">
+                <button type="button" class="rounded-full bg-brand px-5 py-3 font-semibold text-white">Help</button>
+                <ul class="invisible pointer-events-none absolute bottom-full left-0 z-20 mb-1 w-52 rounded-2xl border border-brand/15 bg-white p-3 opacity-0 shadow-soft transition group-hover/help:visible group-hover/help:pointer-events-auto group-hover/help:opacity-100 group-focus-within/help:visible group-focus-within/help:pointer-events-auto group-focus-within/help:opacity-100">
+                    <li><button type="button" class="mt-1 block w-full rounded-xl px-3 py-2 text-left font-medium text-brand hover:bg-brandSoft">Shipping</button></li>
+                    <li><button type="button" class="mt-1 block w-full rounded-xl px-3 py-2 text-left font-medium text-brand hover:bg-brandSoft">Returns</button></li>
+                    <li><button type="button" class="mt-1 block w-full rounded-xl px-3 py-2 text-left font-medium text-brand hover:bg-brandSoft">FAQs</button></li>
+                </ul>
+            </nav>
+
+            <section aria-label="Footer about action">
+                <button type="button" class="rounded-full border border-brand px-5 py-3 font-semibold text-brand hover:bg-brand hover:text-white">About</button>
+            </section>
+
+            <section aria-label="Footer contact action">
+                <button type="button" class="rounded-full border border-brand px-5 py-3 font-semibold text-brand hover:bg-brand hover:text-white">Contact</button>
+            </section>
+
+            <nav class="flex items-center gap-3 lg:justify-end" aria-label="Social media">
+                <button type="button" aria-label="Facebook" class="rounded-full border border-brand p-2 text-brand hover:bg-brand hover:text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5"><path d="M13.5 9H16V6h-2.5C11.57 6 10 7.57 10 9.5V12H8v3h2v6h3v-6h2.5l.5-3H13v-2.5c0-.28.22-.5.5-.5Z"/></svg>
+                </button>
+                <button type="button" aria-label="Instagram" class="rounded-full border border-brand p-2 text-brand hover:bg-brand hover:text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5"><path d="M7.5 2A5.5 5.5 0 0 0 2 7.5v9A5.5 5.5 0 0 0 7.5 22h9a5.5 5.5 0 0 0 5.5-5.5v-9A5.5 5.5 0 0 0 16.5 2h-9Zm0 2h9A3.5 3.5 0 0 1 20 7.5v9a3.5 3.5 0 0 1-3.5 3.5h-9A3.5 3.5 0 0 1 4 16.5v-9A3.5 3.5 0 0 1 7.5 4Zm9.75 1a1.25 1.25 0 1 0 0 2.5 1.25 1.25 0 0 0 0-2.5ZM12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10Zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6Z"/></svg>
+                </button>
+                <button type="button" aria-label="X" class="rounded-full border border-brand p-2 text-brand hover:bg-brand hover:text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5"><path d="M18.244 2H21l-6.53 7.463L22 22h-6.172l-4.833-6.314L5.47 22H2.71l6.985-7.987L2 2h6.327l4.368 5.76L18.244 2Zm-2.163 18h1.708L7.4 3.895H5.57L16.081 20Z"/></svg>
+                </button>
+            </nav>
+        </section>
+        <section class="border-t border-brand/10 px-4 py-4 text-center text-sm font-medium text-brand/80" aria-label="Copyright">
+            <p>©2026 Petco Animal Supplies, Inc. All rights reserved.</p>
+        </section>
+    </footer>
+
+    <script>
+        const paymentMethodInputs = document.querySelectorAll('input[name="payment_method"]');
+        const paymentForm = document.querySelector('form[aria-label="Payment form"]');
+        const cardDetailsSection = document.getElementById('card-details');
+        const paypalRedirectSection = document.getElementById('paypal-redirect');
+        const walletOptionsSection = document.getElementById('wallet-options');
+        const formErrorSummary = document.getElementById('form-error-summary');
+        const cardInputs = document.querySelectorAll('[data-card-field="true"]');
+        const cardExpiryInput = document.getElementById('card-expiry');
+        const cardExpiryError = document.getElementById('card-expiry-error');
+        const noDigitsInputs = document.querySelectorAll('[data-no-digits="true"]');
+        const digitsOnlyInputs = document.querySelectorAll('[data-digits-only="true"]');
+        const lettersOnlyInputs = document.querySelectorAll('[data-letters-only="true"]');
+        const expiryInputs = document.querySelectorAll('[data-expiry-field="true"]');
+        const requiredSections = document.querySelectorAll('[data-required-section="true"]');
+        let hasTriedSubmit = false;
+        let expiryTouched = false;
+
+        function isVisibleField(field) {
+            return !field.closest('.hidden');
+        }
+
+        function setFieldErrorState(field, hasError) {
+            field.classList.toggle('border-red-500', hasError);
+            field.classList.toggle('focus:border-red-500', hasError);
+            field.classList.toggle('focus:shadow-[0_0_0_3px_rgba(239,68,68,0.2)]', hasError);
+
+            if (!hasError) {
+                field.classList.remove('focus:border-red-500');
+                field.classList.remove('focus:shadow-[0_0_0_3px_rgba(239,68,68,0.2)]');
+            }
+        }
+
+        function getFieldErrorHost(field) {
+            if (field.type === 'radio') {
+                return field.closest('fieldset');
+            }
+            return field.parentElement;
+        }
+
+        function getFieldErrorKey(field) {
+            if (field.type === 'radio') {
+                return field.name;
+            }
+            return field.id || field.name;
+        }
+
+        function getOrCreateFieldErrorElement(field) {
+            const host = getFieldErrorHost(field);
+            const key = getFieldErrorKey(field);
+            if (!host || !key) {
+                return null;
+            }
+
+            let errorElement = host.querySelector(`[data-inline-error-for="${key}"]`);
+            if (!errorElement) {
+                errorElement = document.createElement('p');
+                errorElement.className = 'mt-1 hidden text-xs font-medium text-red-600';
+                errorElement.setAttribute('data-inline-error-for', key);
+                host.appendChild(errorElement);
+            }
+
+            return errorElement;
+        }
+
+        function setFieldErrorMessage(field, message) {
+            const errorElement = getOrCreateFieldErrorElement(field);
+            if (!errorElement) {
+                return;
+            }
+
+            if (message) {
+                errorElement.textContent = message;
+                errorElement.classList.remove('hidden');
+            } else {
+                errorElement.textContent = '';
+                errorElement.classList.add('hidden');
+            }
+        }
+
+        function setExpiryValidity() {
+            if (!cardExpiryInput) {
+                return;
+            }
+
+            let expiryErrorMessage = '';
+
+            if (!cardExpiryInput.required || !isVisibleField(cardExpiryInput)) {
+                cardExpiryInput.setCustomValidity('');
+                if (cardExpiryError) {
+                    cardExpiryError.classList.add('hidden');
+                    cardExpiryError.textContent = '';
+                }
+                return;
+            }
+
+            const expiryValue = cardExpiryInput.value.trim();
+            if (!expiryValue) {
+                cardExpiryInput.setCustomValidity('');
+            } else {
+                const expiryMatch = expiryValue.match(/^(0[1-9]|1[0-2])\/(\d{2})$/);
+                if (!expiryMatch) {
+                    expiryErrorMessage = 'Enter expiration date as MM/YY.';
+                } else {
+                    const expiryMonth = Number(expiryMatch[1]);
+                    const expiryYear = 2000 + Number(expiryMatch[2]);
+                    const today = new Date();
+                    const currentMonth = today.getMonth() + 1;
+                    const currentYear = today.getFullYear();
+
+                    if (expiryYear < currentYear || (expiryYear === currentYear && expiryMonth < currentMonth)) {
+                        expiryErrorMessage = 'Expiration date cannot be in the past.';
+                    }
+                }
+            }
+
+            cardExpiryInput.setCustomValidity(expiryErrorMessage);
+
+            if (cardExpiryError) {
+                const shouldShowRequired = (hasTriedSubmit || expiryTouched) && !expiryValue;
+
+                if ((hasTriedSubmit || expiryTouched) && expiryErrorMessage) {
+                    cardExpiryError.textContent = expiryErrorMessage;
+                    cardExpiryError.classList.remove('hidden');
+                } else if (shouldShowRequired) {
+                    cardExpiryError.textContent = 'Required Field';
+                    cardExpiryError.classList.remove('hidden');
+                } else {
+                    cardExpiryError.classList.add('hidden');
+                    cardExpiryError.textContent = '';
+                }
+            }
+        }
+
+        function updateValidationUI() {
+            setExpiryValidity();
+
+            const allFields = paymentForm.querySelectorAll('input, select, textarea');
+            const invalidRequiredFields = Array.from(allFields).filter((field) => field.required && isVisibleField(field) && !field.checkValidity());
+
+            if (!hasTriedSubmit) {
+                allFields.forEach((field) => {
+                    setFieldErrorState(field, false);
+                    setFieldErrorMessage(field, '');
+                });
+
+                requiredSections.forEach((section) => {
+                    section.classList.remove('border-red-500', 'bg-red-50');
+                });
+
+                if (formErrorSummary) {
+                    formErrorSummary.classList.add('hidden');
+                    formErrorSummary.textContent = '';
+                }
+
+                return;
+            }
+
+            allFields.forEach((field) => {
+                if (!field.required || !isVisibleField(field)) {
+                    setFieldErrorState(field, false);
+                    setFieldErrorMessage(field, '');
+                    return;
+                }
+
+                const hasError = !field.checkValidity();
+                setFieldErrorState(field, hasError);
+
+                if (!hasError) {
+                    setFieldErrorMessage(field, '');
+                    return;
+                }
+
+                if (field.id === 'card-expiry') {
+                    return;
+                }
+
+                const isEmpty = field.type === 'radio'
+                    ? !paymentForm.querySelector(`input[name="${field.name}"]:checked`)
+                    : String(field.value || '').trim() === '';
+
+                setFieldErrorMessage(field, isEmpty ? 'Required Field' : 'Required Field');
+            });
+
+            requiredSections.forEach((section) => {
+                const sectionFields = section.querySelectorAll('input, select, textarea');
+                const sectionHasInvalidField = Array.from(sectionFields).some((field) => field.required && isVisibleField(field) && !field.checkValidity());
+
+                section.classList.toggle('border-red-500', sectionHasInvalidField);
+                section.classList.toggle('bg-red-50', sectionHasInvalidField);
+            });
+
+            if (formErrorSummary) {
+                if (invalidRequiredFields.length > 0) {
+                    formErrorSummary.textContent = `Please complete all required fields. ${invalidRequiredFields.length} field(s) still need attention.`;
+                    formErrorSummary.classList.remove('hidden');
+                } else {
+                    formErrorSummary.classList.add('hidden');
+                    formErrorSummary.textContent = '';
+                }
+            }
+        }
+
+        function toggleCardFields() {
+            const selectedMethod = document.querySelector('input[name="payment_method"]:checked');
+            const showCardFields = selectedMethod && selectedMethod.value === 'credit_card';
+            const showPaypalRedirect = selectedMethod && selectedMethod.value === 'paypal';
+            const showWalletOptions = selectedMethod && selectedMethod.value === 'apple_google';
+
+            cardDetailsSection.classList.toggle('hidden', !showCardFields);
+            paypalRedirectSection.classList.toggle('hidden', !showPaypalRedirect);
+            walletOptionsSection.classList.toggle('hidden', !showWalletOptions);
+
+            cardInputs.forEach((input) => {
+                input.required = showCardFields;
+                if (!showCardFields) {
+                    input.value = '';
+                }
+            });
+
+            updateValidationUI();
+        }
+
+        paymentMethodInputs.forEach((input) => {
+            input.addEventListener('change', toggleCardFields);
+        });
+
+        paymentForm.querySelectorAll('input, select, textarea').forEach((field) => {
+            field.addEventListener('input', updateValidationUI);
+            field.addEventListener('change', updateValidationUI);
+        });
+
+        paymentForm.addEventListener('submit', (event) => {
+            hasTriedSubmit = true;
+            updateValidationUI();
+            if (!paymentForm.checkValidity()) {
+                event.preventDefault();
+                const firstInvalidField = paymentForm.querySelector('input:invalid, select:invalid, textarea:invalid');
+                if (firstInvalidField) {
+                    firstInvalidField.focus();
+                }
+            }
+        });
+
+        noDigitsInputs.forEach((input) => {
+            input.addEventListener('input', () => {
+                input.value = input.value.replace(/[0-9]/g, '');
+            });
+        });
+
+        digitsOnlyInputs.forEach((input) => {
+            input.addEventListener('input', () => {
+                input.value = input.value.replace(/\D/g, '');
+            });
+        });
+
+        lettersOnlyInputs.forEach((input) => {
+            input.addEventListener('input', () => {
+                input.value = input.value.replace(/[^A-Za-z\s]/g, '');
+            });
+        });
+
+        expiryInputs.forEach((input) => {
+            input.addEventListener('blur', () => {
+                expiryTouched = true;
+                updateValidationUI();
+            });
+
+            input.addEventListener('input', () => {
+                const digits = input.value.replace(/\D/g, '').slice(0, 4);
+                if (digits.length <= 2) {
+                    input.value = digits;
+                } else {
+                    input.value = `${digits.slice(0, 2)}/${digits.slice(2)}`;
+                }
+            });
+        });
+
+        updateValidationUI();
+    </script>
+</body>
+</html>

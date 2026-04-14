@@ -1,95 +1,393 @@
 <!DOCTYPE html> 
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Petco | Where the pets go.</title>
-
-<script src="https://cdn.tailwindcss.com"></script>
-
-<script>
-tailwind.config = {
-    theme: {
-        extend: {
-            colors: {
-                petco: {
-                    navy: 'rgb(0 25 82)',
-                    blue: 'rgb(0 157 220)',
-                    green: 'rgb(136 198 90)'
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Petco Animal Supplies</title>
+    <meta name="description" content="Quality supplies for every pet, every day.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: "#00205B",
+                        brandLight: "#123E8A",
+                        brandSoft: "#E8EEF8"
+                    },
+                    boxShadow: {
+                        soft: "0 20px 45px rgba(0, 32, 91, 0.12)"
+                    }
                 }
-            },
-            fontFamily: {
-                petco: ['Petco Circular', 'Segoe UI', 'Roboto', 'sans-serif']
+            }
+        };
+    </script>
+    <style>
+        :root {
+            --brand: #00205B;
+            --brand-light: #123E8A;
+            --surface: #F7FAFF;
+        }
+
+        body {
+            font-family: "DM Sans", sans-serif;
+            position: relative;
+            background:
+                radial-gradient(circle at 90% 5%, rgba(0, 32, 91, 0.14) 0%, rgba(0, 32, 91, 0) 35%),
+                radial-gradient(circle at 8% 88%, rgba(0, 32, 91, 0.12) 0%, rgba(0, 32, 91, 0) 36%),
+                var(--surface);
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background: #ffffff;
+            z-index: 9999;
+            pointer-events: none;
+            animation: fade-screen 1s ease-out forwards;
+        }
+
+        body > * {
+            opacity: 0;
+            animation: fade-content 0.85s ease-out 0.1s forwards;
+        }
+
+        @keyframes fade-screen {
+            0% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0;
+                visibility: hidden;
             }
         }
-    }
-}
-</script>
 
-<link rel="stylesheet" href="style.css">
+        @keyframes fade-content {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            body::before,
+            body > * {
+                animation: none;
+            }
+
+            body::before {
+                opacity: 0;
+                visibility: hidden;
+            }
+
+            body > * {
+                opacity: 1;
+            }
+        }
+    </style>
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "PetStore",
+          "name": "Petco Animal Supplies, Inc.",
+          "description": "Everything your pets need in one place.",
+          "url": "https://example.com",
+          "logo": "ADD_LOGO_IMAGE_URL_HERE",
+          "sameAs": [
+            "https://www.facebook.com/",
+            "https://www.instagram.com/",
+            "https://www.x.com/"
+          ],
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Pet Supplies",
+            "itemListElement": [
+              {
+                "@type": "OfferCatalog",
+                "name": "Dogs"
+              },
+              {
+                "@type": "OfferCatalog",
+                "name": "Cats"
+              },
+              {
+                "@type": "OfferCatalog",
+                "name": "Birds"
+              },
+              {
+                "@type": "OfferCatalog",
+                "name": "Fish"
+              },
+              {
+                "@type": "OfferCatalog",
+                "name": "Reptiles"
+              },
+              {
+                "@type": "OfferCatalog",
+                "name": "Grooming & Care"
+              }
+            ]
+          }
+        }
+    </script>
 </head>
+<body>
+    <header class="sticky top-0 z-40 border-b border-brand/10 bg-white/95 backdrop-blur-sm">
+        <section class="mx-auto flex w-full max-w-7xl flex-col gap-4 px-4 py-4 sm:px-6 lg:px-8 xl:flex-row xl:items-center xl:gap-6" aria-label="Header content">
+            <figure class="flex items-center gap-3">
+                <img src="Images/NEW Petco Logo 2025.png" alt="Petco logo placeholder" class="h-20 w-auto object-contain">
+            </figure>
+            <form class="w-full xl:min-w-0 xl:flex-1" role="search" aria-label="Search products">
+                <label for="site-search" class="sr-only">Search products</label>
+                <div class="flex items-center rounded-full border border-brand/30 bg-brandSoft/70 p-1 shadow-soft">
+                    <input id="site-search" name="q" type="search" placeholder="Search food, toys, beds..." class="w-full rounded-full bg-transparent px-4 py-2 text-sm font-medium text-brand placeholder:text-brand/70 focus:outline-none">
+                    <button type="submit" class="rounded-full bg-brand px-4 py-2 text-sm font-semibold text-white transition hover:bg-brandLight">Search</button>
+                </div>
+            </form>
+            <nav aria-label="Main navigation" class="w-full xl:w-auto xl:flex-shrink-0">
+                <ul class="flex flex-wrap items-center justify-start gap-2 sm:gap-3 xl:flex-nowrap xl:justify-end">
+                    <li><button type="button" class="rounded-full bg-brand px-4 py-2 text-sm font-semibold text-white">Home</button></li>
+                    <li><button type="button" class="rounded-full border border-brand px-4 py-2 text-sm font-semibold text-brand hover:bg-brand hover:text-white">Dogs</button></li>
+                    <li><button type="button" class="rounded-full border border-brand px-4 py-2 text-sm font-semibold text-brand hover:bg-brand hover:text-white">Cats</button></li>
+                    <li><button type="button" class="rounded-full border border-brand px-4 py-2 text-sm font-semibold text-brand hover:bg-brand hover:text-white">Fish</button></li>
+                    <li><button type="button" class="rounded-full border border-brand px-4 py-2 text-sm font-semibold text-brand hover:bg-brand hover:text-white">Other</button></li>
+                    <li class="relative group/account">
+                        <button type="button" aria-label="Open account menu" class="rounded-full border border-brand p-1 hover:bg-brandSoft">
+                            <img src="Images/person icon.jpeg" alt="Account icon" class="h-11 w-11 rounded-full object-cover">
+                        </button>
+                        <ul class="invisible pointer-events-none absolute right-0 top-full z-20 mt-2 w-40 rounded-2xl border border-brand/15 bg-white p-2 opacity-0 shadow-soft transition group-hover/account:visible group-hover/account:pointer-events-auto group-hover/account:opacity-100 group-focus-within/account:visible group-focus-within/account:pointer-events-auto group-focus-within/account:opacity-100">
+                            <li><button type="button" class="block w-full rounded-xl px-3 py-2 text-left text-sm font-medium text-brand hover:bg-brandSoft">Cart</button></li>
+                            <li><button type="button" class="block w-full rounded-xl px-3 py-2 text-left text-sm font-medium text-brand hover:bg-brandSoft">Orders</button></li>
+                            <li><button type="button" class="block w-full rounded-xl px-3 py-2 text-left text-sm font-medium text-brand hover:bg-brandSoft">Rewards</button></li>
+                            <li><button type="button" class="block w-full rounded-xl px-3 py-2 text-left text-sm font-medium text-brand hover:bg-brandSoft">Sign In</button></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </section>
+    </header>
 
-<body class="font-petco flex min-h-screen flex-col bg-slate-100 text-petco-navy">
+    <main>
+        <section class="mx-auto mt-8 grid w-full max-w-7xl gap-6 px-4 pb-6 sm:px-6 lg:grid-cols-2 lg:items-center lg:px-8">
+            <article class="rounded-3xl bg-brand p-8 text-white shadow-soft sm:p-10">
+                <p class="text-sm uppercase tracking-[0.22em] text-white/80">Your Neighborhood Pet Hub</p>
+                <h1 class="mt-4 text-4xl font-extrabold leading-tight sm:text-5xl">Everything Your Pets Need in One Place</h1>
+                <p class="mt-4 max-w-xl text-lg text-white/90">Quality supplies for every pet, every day</p>
+                <button type="button" class="mt-8 rounded-full bg-white px-7 py-3 text-base font-bold text-brand transition hover:bg-brandSoft">Shop Now</button>
+            </article>
+            <figure class="overflow-hidden rounded-3xl border border-brand/10 shadow-soft">
+                <img src="Images/blog-image-size900-x-600-px-5.jpg" alt="Friendly pets banner placeholder" class="h-full min-h-[280px] w-full rounded-3xl object-cover">
+            </figure>
+        </section>
 
-<!-- HEADER -->
-<header class="sticky top-0 z-50 px-3 pt-3 md:px-6">
-<nav class="navbar-shell mx-auto w-full max-w-7xl rounded-2xl border border-petco-navy/20 p-3 md:p-4">
+        <section class="mx-auto w-full max-w-7xl px-4 py-12 sm:px-6 lg:px-8" aria-labelledby="featured-categories-title">
+            <header class="mb-7 flex items-end justify-between">
+                <h2 id="featured-categories-title" class="text-3xl font-extrabold text-brand">Featured Categories</h2>
+            </header>
+            <ul class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3" aria-label="Featured pet categories">
+                <li>
+                <button type="button" class="group w-full overflow-hidden rounded-3xl border border-brand/10 bg-white text-center shadow-soft transition hover:-translate-y-1">
+                    <img src="Images/dogo-argentino-puppy.avif" alt="Dogs category placeholder" class="h-56 w-full object-cover object-center transition duration-500 group-hover:scale-105 md:h-60">
+                    <span class="block px-5 py-4 text-center text-xl font-bold text-brand">Dogs</span>
+                </button>
+                </li>
+                <li>
+                <button type="button" class="group w-full overflow-hidden rounded-3xl border border-brand/10 bg-white text-center shadow-soft transition hover:-translate-y-1">
+                    <img src="Images/istockphoto-477799262-612x612.jpg" alt="Cats category placeholder" class="h-56 w-full object-cover object-center transition duration-500 group-hover:scale-105 md:h-60">
+                    <span class="block px-5 py-4 text-center text-xl font-bold text-brand">Cats</span>
+                </button>
+                </li>
+                <li>
+                <button type="button" class="group w-full overflow-hidden rounded-3xl border border-brand/10 bg-white text-center shadow-soft transition hover:-translate-y-1">
+                    <img src="Images/large.jpeg" alt="Birds category placeholder" class="h-56 w-full object-cover object-center transition duration-500 group-hover:scale-105 md:h-60">
+                    <span class="block px-5 py-4 text-center text-xl font-bold text-brand">Birds</span>
+                </button>
+                </li>
+                <li>
+                <button type="button" class="group w-full overflow-hidden rounded-3xl border border-brand/10 bg-white text-center shadow-soft transition hover:-translate-y-1">
+                    <img src="Images/202504202409pet-fish-betta.jpg" alt="Fish category placeholder" class="h-56 w-full object-cover object-center transition duration-500 group-hover:scale-105 md:h-60">
+                    <span class="block px-5 py-4 text-center text-xl font-bold text-brand">Fish</span>
+                </button>
+                </li>
+                <li>
+                <button type="button" class="group w-full overflow-hidden rounded-3xl border border-brand/10 bg-white text-center shadow-soft transition hover:-translate-y-1">
+                    <img src="Images/pet-green-iguana-1024x649.avif" alt="Reptiles category placeholder" class="h-56 w-full object-cover object-center transition duration-500 group-hover:scale-105 md:h-60">
+                    <span class="block px-5 py-4 text-center text-xl font-bold text-brand">Reptiles</span>
+                </button>
+                </li>
+                <li>
+                <button type="button" class="group w-full overflow-hidden rounded-3xl border border-brand/10 bg-white text-center shadow-soft transition hover:-translate-y-1">
+                    <img src="Images/benefits-of-grooming-your-pet-featured-image.webp" alt="Grooming and care category placeholder" class="h-56 w-full object-cover object-center transition duration-500 group-hover:scale-105 md:h-60">
+                    <span class="block px-5 py-4 text-center text-xl font-bold text-brand">Grooming &amp; Care</span>
+                </button>
+                </li>
+            </ul>
+        </section>
 
-<div class="flex flex-wrap items-center gap-3 md:gap-4">
+        <section class="mx-auto w-full max-w-7xl px-4 py-12 sm:px-6 lg:px-8" aria-labelledby="best-sellers-title">
+            <h2 id="best-sellers-title" class="text-3xl font-extrabold text-brand">Best Sellers</h2>
+            <ul class="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5" aria-label="Best-selling products">
+                <li>
+                <article class="rounded-3xl border border-brand/10 bg-white p-4 shadow-soft">
+                    <img src="Images/3247877-center-1.avif" alt="Premium grain-free dog food placeholder" class="h-40 w-full rounded-2xl object-cover">
+                    <h3 class="mt-4 text-lg font-bold text-brand">Premium Grain-Free Dog Kibble</h3>
+                    <p class="mt-1 text-xl font-extrabold text-brandLight">$34.95</p>
+                    <button type="button" class="mt-4 w-full rounded-full bg-brand px-4 py-2 font-semibold text-white hover:bg-brandLight">Add to Cart</button>
+                </article>
+                </li>
+                <li>
+                <article class="rounded-3xl border border-brand/10 bg-white p-4 shadow-soft">
+                    <img src="Images/3674730-Center-1.avif" alt="Orthopedic pet bed placeholder" class="h-40 w-full rounded-2xl object-cover">
+                    <h3 class="mt-4 text-lg font-bold text-brand">Orthopedic Plush Pet Bed</h3>
+                    <p class="mt-1 text-xl font-extrabold text-brandLight">$49.50</p>
+                    <button type="button" class="mt-4 w-full rounded-full bg-brand px-4 py-2 font-semibold text-white hover:bg-brandLight">Add to Cart</button>
+                </article>
+                </li>
+                <li>
+                <article class="rounded-3xl border border-brand/10 bg-white p-4 shadow-soft">
+                    <img src="Images/E5EE8E77-50B3-4466-95E1-43F373710D05.webp" alt="Feather teaser cat wand placeholder" class="h-40 w-full rounded-2xl object-cover">
+                    <h3 class="mt-4 text-lg font-bold text-brand">Feather Teaser Cat Wand Set</h3>
+                    <p class="mt-1 text-xl font-extrabold text-brandLight">$12.75</p>
+                    <button type="button" class="mt-4 w-full rounded-full bg-brand px-4 py-2 font-semibold text-white hover:bg-brandLight">Add to Cart</button>
+                </article>
+                </li>
+                <li>
+                <article class="rounded-3xl border border-brand/10 bg-white p-4 shadow-soft">
+                    <img src="Images/611bM1nql5S.jpg" alt="Canister aquarium filter placeholder" class="h-40 w-full rounded-2xl object-cover">
+                    <h3 class="mt-4 text-lg font-bold text-brand">QuietFlow Aquarium Canister Filter</h3>
+                    <p class="mt-1 text-xl font-extrabold text-brandLight">$67.20</p>
+                    <button type="button" class="mt-4 w-full rounded-full bg-brand px-4 py-2 font-semibold text-white hover:bg-brandLight">Add to Cart</button>
+                </article>
+                </li>
+                <li>
+                <article class="rounded-3xl border border-brand/10 bg-white p-4 shadow-soft">
+                    <img src="Images/DCH24_FRONT_3000x3000_a1e79ab6-6763-407d-8c65-3d573309ea1b_1024x1024.webp" alt="Natural dental dog chews placeholder" class="h-40 w-full rounded-2xl object-cover">
+                    <h3 class="mt-4 text-lg font-bold text-brand">Natural Dental Chew Pack</h3>
+                    <p class="mt-1 text-xl font-extrabold text-brandLight">$18.30</p>
+                    <button type="button" class="mt-4 w-full rounded-full bg-brand px-4 py-2 font-semibold text-white hover:bg-brandLight">Add to Cart</button>
+                </article>
+                </li>
+            </ul>
+        </section>
 
-<!-- Logo -->
-<a href="index.html" class="flex items-center gap-2">
-    <img src="assets/petco_logo_2025.png" class="h-10">
-</a>
+        <section class="mx-auto w-full max-w-7xl px-4 py-12 sm:px-6 lg:px-8" aria-labelledby="offers-title">
+            <h2 id="offers-title" class="text-3xl font-extrabold text-brand">Special Offers</h2>
+            <ul class="mt-6 grid gap-5 md:grid-cols-2" aria-label="Limited time pet store offers">
+                <li>
+                <article class="rounded-3xl border border-brand bg-brand p-6 text-white shadow-soft">
+                    <h3 class="text-2xl font-extrabold">Spring Sale - Up to 20% Off Toys</h3>
+                </article>
+                </li>
+                <li>
+                <article class="rounded-3xl border border-brand/20 bg-white p-6 text-brand shadow-soft">
+                    <h3 class="text-2xl font-extrabold">Buy 2 Get 1 Free Treats</h3>
+                </article>
+                </li>
+            </ul>
+        </section>
 
-<!-- Search -->
-<form class="w-full md:max-w-md md:ml-auto">
-    <input type="search" placeholder="Search food, toys, treats..."
-    class="w-full rounded-xl border px-3 py-2">
-</form>
+        <section class="mx-auto w-full max-w-7xl px-4 py-12 sm:px-6 lg:px-8" aria-labelledby="about-title">
+            <article class="grid items-center gap-6 rounded-3xl border border-brand/10 bg-white p-6 shadow-soft md:grid-cols-2">
+                <figure>
+                    <img src="Images/1532373539311.jpg" alt="Store or pets photo placeholder" class="h-full min-h-[240px] w-full rounded-2xl object-cover">
+                </figure>
+                <section>
+                    <h2 id="about-title" class="text-3xl font-extrabold text-brand">About Us</h2>
+                    <p class="mt-4 text-base leading-7 text-brand/90">We started with one promise: help every family care for pets like true companions. Our mission is to bring trusted essentials, expert guidance, and joyful products together so pets can thrive and people can feel confident every step of the way.</p>
+                    <button type="button" class="mt-6 rounded-full bg-brand px-6 py-3 font-semibold text-white hover:bg-brandLight">Learn More</button>
+                </section>
+            </article>
+        </section>
 
-<!-- Account -->
-<details class="account-menu ml-auto">
-    <summary class="rounded-xl bg-petco-navy px-3 py-2 text-white cursor-pointer">
-        Account
-    </summary>
+        <section class="mx-auto w-full max-w-7xl px-4 py-12 sm:px-6 lg:px-8" aria-labelledby="reviews-title">
+            <h2 id="reviews-title" class="text-3xl font-extrabold text-brand">Customer Reviews</h2>
+            <ul class="mt-6 grid gap-5 md:grid-cols-2 xl:grid-cols-4" aria-label="Customer testimonials">
+                <li>
+                <article class="rounded-3xl border border-brand/10 bg-white p-5 shadow-soft">
+                    <p class="text-xl text-amber-500">★★★★★</p>
+                    <h3 class="mt-3 text-lg font-bold text-brand">Maya T.</h3>
+                    <p class="mt-2 text-brand/90">"Shipping was fast, and the dog food was fresher than what I usually find locally."</p>
+                </article>
+                </li>
+                <li>
+                <article class="rounded-3xl border border-brand/10 bg-white p-5 shadow-soft">
+                    <p class="text-xl text-amber-500">★★★★★</p>
+                    <h3 class="mt-3 text-lg font-bold text-brand">Carlos V.</h3>
+                    <p class="mt-2 text-brand/90">"The aquarium filter is super quiet and my tank has never looked clearer."</p>
+                </article>
+                </li>
+                <li>
+                <article class="rounded-3xl border border-brand/10 bg-white p-5 shadow-soft">
+                    <p class="text-xl text-amber-500">★★★★★</p>
+                    <h3 class="mt-3 text-lg font-bold text-brand">Jenna R.</h3>
+                    <p class="mt-2 text-brand/90">"My cat went crazy for the teaser wand, and checkout was easy on mobile."</p>
+                </article>
+                </li>
+                <li>
+                <article class="rounded-3xl border border-brand/10 bg-white p-5 shadow-soft">
+                    <p class="text-xl text-amber-500">★★★★★</p>
+                    <h3 class="mt-3 text-lg font-bold text-brand">Noah P.</h3>
+                    <p class="mt-2 text-brand/90">"Great pricing on treats and beds, plus support answered my questions quickly."</p>
+                </article>
+                </li>
+            </ul>
+        </section>
 
-    <div class="absolute right-3 mt-2 w-44 bg-white rounded-xl shadow-xl p-2">
-        <a href="#" class="block px-3 py-2 hover:bg-slate-100">Sign in</a>
-        <a href="#" class="block px-3 py-2 hover:bg-slate-100">Orders</a>
-    </div>
-</details>
+        <section class="mx-auto w-full max-w-7xl px-4 py-12 sm:px-6 lg:px-8" aria-labelledby="newsletter-title">
+            <article class="rounded-3xl bg-brand p-6 text-white shadow-soft sm:p-8">
+                <h2 id="newsletter-title" class="text-3xl font-extrabold">Newsletter Signup</h2>
+                <p class="mt-2 text-white/85">Get first access to fresh arrivals and weekly savings.</p>
+                <form class="mt-6 flex flex-col gap-3 sm:flex-row" action="#" method="post">
+                    <label for="newsletter-email" class="sr-only">Email address</label>
+                    <input id="newsletter-email" name="email" type="email" required placeholder="Enter your email" class="w-full rounded-full border border-white/40 bg-white px-5 py-3 text-brand placeholder:text-brand/70 focus:outline-none focus:ring-2 focus:ring-white sm:max-w-md">
+                    <button type="button" class="rounded-full bg-white px-6 py-3 font-bold text-brand hover:bg-brandSoft">Subscribe for Deals</button>
+                </form>
+            </article>
+        </section>
+    </main>
 
-<!-- CART ICON -->
-<a href="cart.html" class="ml-2 relative bg-white border rounded-xl px-3 py-2 hover:bg-slate-100">
+    <footer class="border-t border-brand/15 bg-white">
+        <section class="mx-auto grid w-full max-w-7xl gap-10 px-4 py-10 sm:px-6 lg:grid-cols-[1fr_1fr_1fr_auto] lg:px-8" aria-label="Footer actions and links">
+            <nav class="relative w-fit group/help" aria-label="Help links">
+                <button type="button" class="rounded-full bg-brand px-5 py-3 font-semibold text-white">Help</button>
+                <ul class="invisible pointer-events-none absolute bottom-full left-0 z-20 mb-1 w-52 rounded-2xl border border-brand/15 bg-white p-3 opacity-0 shadow-soft transition group-hover/help:visible group-hover/help:pointer-events-auto group-hover/help:opacity-100 group-focus-within/help:visible group-focus-within/help:pointer-events-auto group-focus-within/help:opacity-100">
+                    <li><button type="button" class="mt-1 block w-full rounded-xl px-3 py-2 text-left font-medium text-brand hover:bg-brandSoft">Shipping</button></li>
+                    <li><button type="button" class="mt-1 block w-full rounded-xl px-3 py-2 text-left font-medium text-brand hover:bg-brandSoft">Returns</button></li>
+                    <li><button type="button" class="mt-1 block w-full rounded-xl px-3 py-2 text-left font-medium text-brand hover:bg-brandSoft">FAQs</button></li>
+                </ul>
+            </nav>
 
-    <svg class="h-5 w-5 text-petco-navy" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-        <path d="M6 6h15l-1.5 9h-13z"/>
-        <circle cx="9" cy="20" r="1"/>
-        <circle cx="18" cy="20" r="1"/>
-    </svg>
+            <section aria-label="Footer about action">
+                <button type="button" class="rounded-full border border-brand px-5 py-3 font-semibold text-brand hover:bg-brand hover:text-white">About</button>
+            </section>
 
-    <span class="absolute -top-1 -right-1 bg-petco-green text-xs px-1.5 rounded-full">
-        2
-    </span>
-</a>
+            <section aria-label="Footer contact action">
+                <button type="button" class="rounded-full border border-brand px-5 py-3 font-semibold text-brand hover:bg-brand hover:text-white">Contact</button>
+            </section>
 
-</div>
-</nav>
-</header>
-
-<!-- MAIN -->
-<main class="flex-1 px-4 py-8 md:px-6">
-
-<section>
-    <div class="max-w-7xl mx-auto">
-        <h1 class="text-2xl font-bold">Welcome to Petco</h1>
-        <p class="mt-2 text-slate-600">Your shopping experience starts here.</p>
-    </div>
-</section>
-
-</main>
-
+            <nav class="flex items-center gap-3 lg:justify-end" aria-label="Social media">
+                <button type="button" aria-label="Facebook" class="rounded-full border border-brand p-2 text-brand hover:bg-brand hover:text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5"><path d="M13.5 9H16V6h-2.5C11.57 6 10 7.57 10 9.5V12H8v3h2v6h3v-6h2.5l.5-3H13v-2.5c0-.28.22-.5.5-.5Z"/></svg>
+                </button>
+                <button type="button" aria-label="Instagram" class="rounded-full border border-brand p-2 text-brand hover:bg-brand hover:text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5"><path d="M7.5 2A5.5 5.5 0 0 0 2 7.5v9A5.5 5.5 0 0 0 7.5 22h9a5.5 5.5 0 0 0 5.5-5.5v-9A5.5 5.5 0 0 0 16.5 2h-9Zm0 2h9A3.5 3.5 0 0 1 20 7.5v9a3.5 3.5 0 0 1-3.5 3.5h-9A3.5 3.5 0 0 1 4 16.5v-9A3.5 3.5 0 0 1 7.5 4Zm9.75 1a1.25 1.25 0 1 0 0 2.5 1.25 1.25 0 0 0 0-2.5ZM12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10Zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6Z"/></svg>
+                </button>
+                <button type="button" aria-label="X" class="rounded-full border border-brand p-2 text-brand hover:bg-brand hover:text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5"><path d="M18.244 2H21l-6.53 7.463L22 22h-6.172l-4.833-6.314L5.47 22H2.71l6.985-7.987L2 2h6.327l4.368 5.76L18.244 2Zm-2.163 18h1.708L7.4 3.895H5.57L16.081 20Z"/></svg>
+                </button>
+            </nav>
+        </section>
+        <section class="border-t border-brand/10 px-4 py-4 text-center text-sm font-medium text-brand/80" aria-label="Copyright">
+            <p>©2026 Petco Animal Supplies, Inc. All rights reserved.</p>
+        </section>
+    </footer>
 </body>
 </html>
